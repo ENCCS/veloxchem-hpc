@@ -4,6 +4,13 @@
 Setting up VeloxChem on a HPC cluster
 =====================================
 
+
+.. todo::
+
+   Review and update with instructions for Dardel. Even though there is a
+   module, I think it's good to summarize our tips and tricks with the Cray
+   programming environment.
+
 .. objectives::
 
    - Learn how to compile VeloxChem on your HPC cluster.

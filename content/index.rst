@@ -48,14 +48,23 @@ You will learn how to:
    :maxdepth: 1
 
    setup
+   hpc-setup
 
 
 .. toctree::
    :hidden:
    :maxdepth: 1
    :caption: The lesson
-   
-   hpc-setup
+
+   notebooks/first-steps
+   notebooks/modern-hpc-architectures
+   notebooks/performance-theory
+   scf-scaling-study
+   tddft-scaling-study
+   resp
+   x-ray-cpp
+   exciton
+   ntos
 
 .. csv-table::
    :widths: auto
