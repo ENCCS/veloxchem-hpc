@@ -108,11 +108,11 @@ half days.
    :delim: ;
 
     9:00 -  9:20 ; Welcome and introduction to the training course 
-    9:20 -  9:40 ; :ref:`notebooks/first-steps`
+    9:20 -  9:40 ; :doc:`notebooks/first-steps`
     9:40 -  9:45 ; Break 
-    9:45 - 10:15 ; :ref:`notebooks/modern-hpc-architectures`
+    9:45 - 10:15 ; :doc:`notebooks/modern-hpc-architectures`
    10:15 - 10:25 ; Break
-   10:25 - 10:55 ; :ref:`notebooks/performance-theory`
+   10:25 - 10:55 ; :doc:`notebooks/performance-theory`
    10:55 - 11:05 ; Break
    11:05 - 11:35 ; :ref:`scf-scaling-study`
    11:35 - 11:45 ; Break
