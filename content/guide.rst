@@ -78,40 +78,51 @@ In this example, we only want to show the *output* of executing the cell.
 Learning outcomes
 ^^^^^^^^^^^^^^^^^
 
-- Familiarize with VeloxChem
+- Familiarize with VeloxChem.
+- Show efficient usage on Dardel.
+- Give enough information to adapt to HPC clusters similar to Dardel, in particular LUMI-C.
 
 First iteration
 ^^^^^^^^^^^^^^^
 
-**Day 1 - Thursday 6 May 2021**
+This workshop is an offshoot of the earlier `VeloxChem: quantum chemistry from
+laptop to HPC <https://enccs.github.io/veloxchem-workshop>`_. In the future, we
+might decide to merge the two into one single lesson, taught in more that 2
+half days.
 
-- Day 1 is based entirely on notebooks.
-- The first segment (up until the first break) can be conducted as a type-along
-  with all attendees in the same room.
-- Subsequent segments are in breakout rooms.
+**Day 1 - Thursday 3 March 2022**
+
+- Day 1 is a mix of lectures and interactive work.
+- The introductions is longer than usual because it includes a 10-minute
+  overview on the VeloxChem project.
+- Episode 2 :ref:`notebooks/modern-hpc-architectures` gives detail about
+  Dardel's architecture.
+- Episode 3 is mostly a lecture. It's delivered as a notebook with interactive
+  plots that attendees can play with live.
+- The two "scaling study" episodes are done in breakout rooms after a short
+  introduction in the main room.
 
 .. csv-table::
    :widths: auto
    :align: center
    :delim: ;
 
-    9:00 -  9:10 ; Welcome and introduction to the training course
-    9:10 -  9:25 ; :doc:`notebooks/first-steps`
-    9:25 -  9:40 ; :doc:`notebooks/next-steps`
-    9:40 -  9:50 ; Break
-    9:50 - 10:50 ; :doc:`notebooks/rh-scf`
-   10:50 - 11:00 ; Break
-   11:00 - 12:00 ; :doc:`notebooks/mp2`
-   12:00 - 12:10 ; Break
-   12:10 - 12:30 ; Wrap-up
+    9:00 -  9:20 ; Welcome and introduction to the training course 
+    9:20 -  9:40 ; :ref:`notebooks/first-steps`
+    9:40 -  9:45 ; Break 
+    9:45 - 10:15 ; :ref:`notebooks/modern-hpc-architectures`
+   10:15 - 10:25 ; Break
+   10:25 - 10:55 ; :ref:`notebooks/performance-theory`
+   10:55 - 11:05 ; Break
+   11:05 - 11:35 ; :ref:`scf-scaling-study`
+   11:35 - 11:45 ; Break
+   11:45 - 12:15 ; :ref:`tddft-scaling-study`
+   12:15 - 12:30 ; Wrap-up
 
-**Day 2 - Friday 7 February 2021**
+**Day 2 - Friday 4 March 2022**
 
-- Day 2 shows how to run on HPC infrastructure and we assume that has been taken
-  care of properly beforehand.
-- The first segment goes through the set up of VeloxChem. This is already
-  part of the installation instructions, so it might be skipped.
-
+- All episodes are done in breakout rooms after a short introduction in the
+  main room.
 
 .. csv-table::
    :widths: auto
@@ -120,12 +131,12 @@ First iteration
 
 
     9:00 -  9:10 ; What did we cover yesterday?
-    9:10 -  9:40 ; :ref:`hpc-setup`
+    9:10 -  9:40 ; :ref:`resp`
     9:40 -  9:50 ; Break
     9:50 - 10:30 ; :ref:`x-ray-cpp`
    10:30 - 10:40 ; Break
    10:40 - 11:20 ; :ref:`exciton`
    11:20 - 11:30 ; Break
-   11:30 - 12:10 ; :ref:`xTB-geomeTRIC`
+   11:30 - 12:10 ; :ref:`ntos`
    12:10 - 12:15 ; Break
    12:15 - 12:30 ; Wrap-up

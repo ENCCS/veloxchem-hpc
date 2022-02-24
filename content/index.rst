@@ -3,19 +3,27 @@ VeloxChem: quantum chemistry towards pre-exascale and beyond
 
 Quantum molecular modeling of complex molecular systems is an indispensable and
 integrated component in advanced material design, as such simulations provide a
-microscopic insight into the underlying physical processes.
-In this workshop, you will learn how to use the `VeloxChem program package <https://veloxchem.org/>`_ to:
+microscopic insight into the underlying physical processes.  
+In this workshop, we will highlight efficient use of the `VeloxChem program
+package <https://veloxchem.org/>`_ on modern HPC architectures, such as the
+`Dardel system at PDC
+<https://www.pdc.kth.se/hpc-services/computing-systems/dardel-1.1043529>`_ and
+the `pre-exascale supercomputer LUMI <https://www.lumi-supercomputer.eu/>`_,
+50% of which is available to academic users of the consortium states, including
+Sweden and Denmark. 
+You will learn how to:
 
-- Perform quantum chemical simulations of *ground- and excited-state properties*
-  of large systems.
-- Leverage the *aggregate resources* of modern HPC clusters to efficiently
-  tackle large molecular systems.
-- Use the Python application programming interface (API) to prototype new
-  methods.
-- Design interactive computational teaching materials in Python.
+- Perform quantum chemical simulations of ground- and excited-state properties
+  on large systems and with efficient use of HPC resources.
+- Understand the performance considerations that influence algorithm design in
+  quantum chemistry.
+- Evaluate the best setup for large scale quantum chemical simulations on HPC
+  hardware.
 
 
 .. prereq::
+
+   .. todo:: review and adjust!
 
    Before attending this workshop, please make sure that you have the
    prerequisite software and hardware available.
@@ -47,21 +55,21 @@ In this workshop, you will learn how to use the `VeloxChem program package <http
    :maxdepth: 1
    :caption: The lesson
    
-   notebooks/first-steps
    hpc-setup
 
 .. csv-table::
    :widths: auto
    :delim: ;
 
-   15 min ; :doc:`notebooks/first-steps`
-   15 min ; :doc:`notebooks/next-steps`
-   60 min ; :doc:`notebooks/rh-scf`
-   60 min ; :doc:`notebooks/mp2`
-   30 min ; :doc:`hpc-setup`
-   40 min ; :doc:`x-ray-cpp`
-   40 min ; :doc:`exciton`
-   40 min ; :doc:`xTB-geomeTRIC`
+   20 min ; :doc:`notebooks/first-steps`
+   30 min ; :doc:`notebooks/modern-hpc-architectures`
+   30 min ; :doc:`notebooks/performance-theory`
+   30 min ; :doc:`scf-scaling-study`
+   30 min ; :doc:`tddft-scaling-study`
+   30 min ; :doc:`resp`
+   30 min ; :doc:`x-ray-cpp`
+   30 min ; :doc:`exciton`
+   30 min ; :doc:`ntos`
 
 
 .. toctree::
@@ -92,7 +100,8 @@ We assume that participants have:
   the level presented in the *Modern Quantum Chemistry* textbook by Szabo and
   Ostlund :cite:`Szabo1996-vl`.
 - Worked previously with other quantum chemical software packages.
-- Some familiarity with the Python programming language. :ref:`We have listed <see-also>` some online resources to refresh your Python knowledge.
+- Some familiarity with the Python programming language. :ref:`We have listed
+  <see-also>` some online resources to refresh your Python knowledge.
 
 
 About the course
