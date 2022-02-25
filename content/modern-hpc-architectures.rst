@@ -33,8 +33,8 @@ Higher performance of a single node has to rely on its more complicated structur
 
 Achieving performance has been based on two main strategies over the years:
 
-    - Increase the single processor performance:
-    - More recently, increase the number of physical cores.
+- Increase the single processor performance:
+- More recently, increase the number of physical cores.
 
 .. [*] This section is adapted, with permission, from the training material for the `ENCCS CUDA workshop <https://enccs.github.io/CUDA/1.01_GPUIntroduction/#exposing-parallelism>`_.
 .. [*] The data in this plot is collected by Karl Rupp and made available on: https://github.com/karlrupp/microprocessor-trend-data
