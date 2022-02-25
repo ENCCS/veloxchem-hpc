@@ -36,6 +36,7 @@ extensions = [
     "sphinxcontrib.bibtex",
     "sphinx.ext.todo",
     "sphinx_thebe",
+    "sphinx_charts.charts",
 ]
 # configure myst_nb
 source_suffix = {".rst": "restructuredtext", ".ipynb": "myst-nb", ".myst": "myst-nb"}

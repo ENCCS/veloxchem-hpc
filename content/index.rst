@@ -42,6 +42,10 @@ You will learn how to:
        desk.  Please follow these :ref:`detailed instructions <compiling>` on
        how to set up the necessary software stack.
 
+.. chart:: charts/microprocessor-trend-data.json
+
+    This is the caption of the chart
+
 
 .. toctree::
    :hidden:
