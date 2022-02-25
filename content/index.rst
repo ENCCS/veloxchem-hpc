@@ -59,9 +59,11 @@ You will learn how to:
    hpc-setup
 
 
+.. _lesson:
+
 .. toctree::
    :hidden:
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: The lesson
 
    notebooks/first-steps
@@ -196,11 +198,7 @@ rocket icon on the top right of the page and select which launcher to use:
    :alt: Launcher menu on Jupyter Lab
    :align: center
 
-"Binder" will redirect you the binder instance. With "Live code", you can run
-and modify the code cells within the webpage.
-The "Live code" option is powered by `sphinx-thebe <https://github.com/executablebooks/sphinx-thebe>`_ and, behind the scenes,
-MyBinder. Be aware that you will not be able to add new code cells in a live
-session.
+"Binder" will redirect you the binder instance. The "Live code" option is disabled for this workshop.
 
 .. _see-also:
 

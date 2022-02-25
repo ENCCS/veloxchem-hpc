@@ -32,10 +32,8 @@ extensions = [
     # githubpages just adds a .nojekyll file
     "sphinx.ext.githubpages",
     "sphinx_lesson",
-    # 'sphinx.ext.intersphinx',
     "sphinxcontrib.bibtex",
     "sphinx.ext.todo",
-    "sphinx_thebe",
     "sphinx_charts.charts",
 ]
 # configure myst_nb
@@ -79,6 +77,7 @@ html_js_files = [
     "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js",
     "https://3Dmol.org/build/3Dmol-min.js"
 ]
+html_use_smartypants = True
 # sphinx-book-theme options
 html_theme_options = {
     "repository_url": f"https://github.com/{github_user}/{github_repo_name}",
@@ -91,7 +90,6 @@ html_theme_options = {
     "home_page_in_toc": True,
     "launch_buttons": {
         "binderhub_url": "https://mybinder.org",
-        "thebe": True,
         "notebook_interface": "jupyterlab",
     },
 }
@@ -119,15 +117,6 @@ html_context = {
 # configure todos
 todo_include_todos = True
 todo_emit_warnings = True
-
-# Intersphinx mapping.  For example, with this you can use
-# :py:mod:`multiprocessing` to link straight to the Python docs of that module.
-# List all available references:
-#   python -msphinx.ext.intersphinx https://docs.python.org/3/objects.inv
-# intersphinx_mapping = {
-#    #'python': ('https://docs.python.org/3', None),
-#    #'sphinx': ('https://www.sphinx-doc.org/', None),
-#    }
 
 # the epilog
 rst_epilog = f"""
