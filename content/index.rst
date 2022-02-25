@@ -61,7 +61,7 @@ You will learn how to:
 
 .. toctree::
    :hidden:
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: The lesson
 
    notebooks/first-steps
