@@ -95,7 +95,7 @@ half days.
 - Day 1 is a mix of lectures and interactive work.
 - The introductions is longer than usual because it includes a 10-minute
   overview on the VeloxChem project.
-- Episode 2 :doc:`notebooks/modern-hpc-architectures` also gives details about
+- Episode 2 :ref:`modern-hpc-architectures` also gives details about
   Dardel's architecture.
 - Episode 3 is mostly a lecture. It's delivered as a notebook with interactive
   plots that attendees can play with live.
@@ -110,7 +110,7 @@ half days.
     9:00 -  9:20 ; Welcome and introduction to the training course 
     9:20 -  9:40 ; :doc:`notebooks/first-steps`
     9:40 -  9:45 ; Break 
-    9:45 - 10:15 ; :doc:`notebooks/modern-hpc-architectures`
+    9:45 - 10:15 ; :ref:`modern-hpc-architectures`
    10:15 - 10:25 ; Break
    10:25 - 10:55 ; :doc:`notebooks/performance-theory`
    10:55 - 11:05 ; Break

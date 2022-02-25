@@ -42,11 +42,6 @@ You will learn how to:
        desk.  Please follow these :ref:`detailed instructions <compiling>` on
        how to set up the necessary software stack.
 
-.. chart:: charts/microprocessor-trend-data.json
-
-    This is the caption of the chart
-
-
 .. toctree::
    :hidden:
    :maxdepth: 1
@@ -61,7 +56,7 @@ You will learn how to:
    :caption: The lesson
 
    notebooks/first-steps
-   notebooks/modern-hpc-architectures
+   modern-hpc-architectures
    notebooks/performance-theory
    scf-scaling-study
    tddft-scaling-study
@@ -75,7 +70,7 @@ You will learn how to:
    :delim: ;
 
    20 min ; :doc:`notebooks/first-steps`
-   30 min ; :doc:`notebooks/modern-hpc-architectures`
+   30 min ; :doc:`modern-hpc-architectures`
    30 min ; :doc:`notebooks/performance-theory`
    30 min ; :doc:`scf-scaling-study`
    30 min ; :doc:`tddft-scaling-study`
