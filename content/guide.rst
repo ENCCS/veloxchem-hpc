@@ -112,7 +112,7 @@ half days.
     9:40 -  9:45 ; Break 
     9:45 - 10:15 ; :ref:`modern-hpc-architectures`
    10:15 - 10:25 ; Break
-   10:25 - 10:55 ; :doc:`notebooks/performance-theory`
+   10:25 - 10:55 ; :ref:`performance-theory`
    10:55 - 11:05 ; Break
    11:05 - 11:35 ; :ref:`scf-scaling-study`
    11:35 - 11:45 ; Break
