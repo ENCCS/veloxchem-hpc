@@ -9,3 +9,4 @@ ipywidgets
 py3Dmol
 jupytext
 sphinx_charts
+plotly
