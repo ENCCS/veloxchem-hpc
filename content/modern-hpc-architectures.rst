@@ -195,7 +195,7 @@ a GPU *partition* is planned.
 
      .. code-block:: shell
 
-        numactl -H
+        numactl --hardware
 
    On the log in node, this should output the following:
 
@@ -252,19 +252,13 @@ a GPU *partition* is planned.
 
      .. code-block:: shell
 
-        salloc -N 1 --ntasks-per-node 1 -t 00:05:00 -A edu22.veloxchem -p main
-
-   - Log in into the node you have been allocated:
-
-     .. code-block:: shell
-
-        ssh ...
+        salloc -N 1 -t 00:05:00 -A edu22.veloxchem -p main
 
    - Run the command:
 
      .. code-block:: shell
 
-        numactl -H
+        srun -n 1 numactl --hardware
 
    How does the NUMA set up differ on the compute nodes?
 
