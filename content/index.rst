@@ -211,6 +211,10 @@ For reference material on quantum chemistry:
 - Helgaker, T.; Jørgensen, P.; Olsen, J. *Molecular Electronic-Structure Theory* :cite:`Helgaker2000-yb`
 - Szabo, A.; Ostlund, N. S. *Modern Quantum Chemistry: Introduction to Advanced Electronic Structure Theory* :cite:`Szabo1996-vl`
 
+For reference materials on parallel programming:
+
+- McCool, M.; Robison, A.; Reinders, J. *Structured Parallel Programming: Patterns for Efficient Computation* :cite:`McCool2012-tx`
+- Mattson, T. G.; Sanders, B.; Massingill, B. *Patterns for Parallel Programming* :cite:`Mattson2004-oc`
 
 Credits
 -------

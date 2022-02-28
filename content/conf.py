@@ -61,7 +61,7 @@ exclude_patterns = [
     "jupyter_execute",
     "*venv*",
     "notebooks/solutions/*.ipynb",
-    "notebooks/visualization_*.ipynb"
+    "notebooks/visualization_*.ipynb",
 ]
 
 # -- Options for HTML output -------------------------------------------------
@@ -75,7 +75,7 @@ html_favicon = "img/favicon.ico"
 html_title = ""  # project
 html_js_files = [
     "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js",
-    "https://3Dmol.org/build/3Dmol-min.js"
+    "https://3Dmol.org/build/3Dmol-min.js",
 ]
 html_use_smartypants = True
 # sphinx-book-theme options
@@ -94,13 +94,13 @@ html_theme_options = {
     },
 }
 html_sidebars = {
-    "**": [ "sidebar-logo.html", "sbt-sidebar-nav.html", "sbt-sidebar-footer.html"]
+    "**": ["sidebar-logo.html", "sbt-sidebar-nav.html", "sbt-sidebar-footer.html"]
 }
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ["_static", "inputs"]
-# html_css_files = ["overrides.css"]
+html_css_files = ["overrides.css"]
 # HTML context:
 from os.path import basename, dirname, realpath
 
@@ -118,9 +118,32 @@ html_context = {
 todo_include_todos = True
 todo_emit_warnings = True
 
+# add few new directives
+from sphinx_lesson.directives import _BaseCRDirective
+
+
+class SignatureDirective(_BaseCRDirective):
+    extra_classes = ["toggle-shown", "dropdown"]
+
+
+class ParametersDirective(_BaseCRDirective):
+    extra_classes = ["dropdown"]
+
+
+class TypealongDirective(_BaseCRDirective):
+    extra_classes = ["toggle-shown", "dropdown"]
+
+
+DIRECTIVES = [SignatureDirective, ParametersDirective, TypealongDirective]
+
 # the epilog
 rst_epilog = f"""
 .. role:: red
 .. role:: blue
 .. _VeloxChem: https://veloxchem.org
 """
+
+
+def setup(app):
+    for obj in DIRECTIVES:
+        app.add_directive(obj.get_cssname(), obj)
