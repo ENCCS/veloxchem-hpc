@@ -34,6 +34,7 @@ extensions = [
     "sphinx_lesson",
     "sphinxcontrib.bibtex",
     "sphinx.ext.todo",
+    "sphinx.ext.mathjax",
     "sphinx_charts.charts",
 ]
 # configure myst_nb
