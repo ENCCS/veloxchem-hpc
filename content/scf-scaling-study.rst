@@ -11,7 +11,7 @@ Scaling study: self-consistent field calculation
 .. keypoints::
 
    - Run a SCF calculation.
-   - Perform scalability test of the SCF calculation.
+   - Perform scaling test of the SCF calculation.
 
 
 Introduction
@@ -40,8 +40,7 @@ You can read more about the VeloxChem input keywords in
 
 - Zinc porphyrin
 
-.. literalinclude:: inputs/porphyrin.inp
-   :emphasize-lines: 9-12
+.. literalinclude:: inputs/zn-ph.inp
 
 - Guanine monomer, dimer, trimer and tetramer
 
