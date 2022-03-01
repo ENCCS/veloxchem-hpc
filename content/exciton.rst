@@ -69,7 +69,7 @@ Exercise
 - Submit a job
 
     Runs the above example.
-    On Dardel this calculation take around 10 minutes on
+    On Dardel this calculation takes around 10 minutes on
     2 nodes. You can choose to run on more nodes.
 
 - Plot the spectrum
