@@ -116,7 +116,7 @@ half days.
    10:55 - 11:05 ; Break
    11:05 - 11:35 ; :ref:`scf-scaling-study`
    11:35 - 11:45 ; Break
-   11:45 - 12:15 ; :ref:`tddft-scaling-study`
+   11:45 - 12:15 ; :ref:`linrsp-scaling-study`
    12:15 - 12:30 ; Wrap-up
 
 **Day 2 - Friday 4 March 2022**

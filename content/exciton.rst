@@ -19,7 +19,7 @@ Introduction
 
 In this exercise we will use an *ab initio* exciton model to compute
 the UV-Vis absorption and electronic ciruclar dichroism (ECD) of
-stacked base-pairs.
+oligothiophene self-assembly.
 
 The Frenkel exciton model describes the electronic structure of
 multi-chromophoric system by dividing the system into subgroups.
@@ -45,23 +45,23 @@ excitation energies and couplings, respectively.
 Diagonalization of the Hamiltonian gives the eigenvalues and
 eigenvectors for the excited states.
 
-System: stacked base-pairs
---------------------------
+System: oligothiophene self-assembly
+------------------------------------
 
 .. raw:: html
 
-   <div style="height: 400px; width: 600px; position: relative;" class='viewer_3Dmoljs' data-href='../_static/stacked-base-pairs.xyz' data-type='xyz' data-backgroundcolor='0xffffff' data-style='stick'></div>
+   <div style="height: 400px; width: 600px; position: relative;" class='viewer_3Dmoljs' data-href='../_static/hexamer.xyz' data-type='xyz' data-backgroundcolor='0xffffff' data-style='stick'></div>
 
 
 Input file
 ----------
 
-Below is the input file for *ab initio* exciton model calculation of stacked
-base-pairs. You can read more about the VeloxChem input keywords in
+Below is the input file for *ab initio* exciton model calculation of oligothiophene
+self-assembly. You can read more about the VeloxChem input keywords in
 `this page <https://docs.veloxchem.org/inputs/keywords.html>`_.
 
-.. literalinclude:: inputs/stacked-base-pairs.inp
-   :emphasize-lines: 10-16
+.. literalinclude:: inputs/hexamer.inp
+   :emphasize-lines: 9-15
 
 Exercise
 --------
@@ -69,7 +69,7 @@ Exercise
 - Submit a job
 
     Runs the above example.
-    On Beskow this calculation can finish within 15 minutes on
+    On Dardel this calculation take around 10 minutes on
     2 nodes. You can choose to run on more nodes.
 
 - Plot the spectrum
@@ -83,8 +83,3 @@ Exercise
 
     The character of the excitations will also be printed at the end of the output
     file. Find out the characters of the important excitations.
-
-- Compare with full TDDFT-TDA result
-
-    Compare the spectra from exciton model and from full TDDFT-TDA calculation
-    (:download:`link to TDDFT-TDA output file<inputs/tddft-tda.out>`).

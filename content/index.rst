@@ -61,7 +61,7 @@ You will learn how to:
    modern-hpc-architectures
    performance-theory
    scf-scaling-study
-   tddft-scaling-study
+   linrsp-scaling-study
    resp
    x-ray-cpp
    exciton
@@ -75,7 +75,7 @@ You will learn how to:
    30 min ; :doc:`modern-hpc-architectures`
    30 min ; :doc:`performance-theory`
    30 min ; :doc:`scf-scaling-study`
-   30 min ; :doc:`tddft-scaling-study`
+   30 min ; :doc:`linrsp-scaling-study`
    30 min ; :doc:`resp`
    30 min ; :doc:`x-ray-cpp`
    30 min ; :doc:`exciton`

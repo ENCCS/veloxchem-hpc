@@ -77,16 +77,15 @@ You can read more about the VeloxChem input keywords in
 `this page <https://docs.veloxchem.org/inputs/keywords.html>`_.
 
 .. literalinclude:: inputs/porphyrin.inp
-   :emphasize-lines: 10-13
+   :emphasize-lines: 9-12
 
 Exercise
 --------
 
 - Submit a job
 
-    Runs the above example on **16** nodes.
-    On Beskow this will take around 9 minutes so please make sure that you
-    specify a proper walltime limit in the job script.
+    Runs the above example on **2** nodes.
+    On Dardel this will take around 2 minutes.
 
 - Plot and analyse the spectrum
 
@@ -99,5 +98,5 @@ Exercise
     
 - Run scalability test
 
-    Run the CPP calculation on fewer number of nodes and plot the speedup with
-    respect to the number of nodes.
+    Run the CPP calculation on different number of nodes.
+    Plot the speedup with respect to the number of nodes.
