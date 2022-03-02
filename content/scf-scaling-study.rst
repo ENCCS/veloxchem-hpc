@@ -43,6 +43,7 @@ breakdown of the time spent within each task of every SCF iteration:
 
 .. literalinclude:: inputs/zn-ph.inp
    :emphasize-lines: 9-11
+   :lines: 1-16
 
 Zinc porphyrin
   You can download the full input file with:
@@ -53,7 +54,7 @@ Zinc porphyrin
 
   .. raw:: html
 
-     <div style="height: 400px; width: 600px; position: relative;" class='viewer_3Dmoljs' data-href='../_static/hexamer.xyz' data-type='xyz' data-backgroundcolor='0xffffff' data-style='stick'></div>
+     <div style="height: 400px; width: 600px; position: relative;" class='viewer_3Dmoljs' data-href='_static/zn-ph.xyz' data-type='xyz' data-backgroundcolor='0xffffff' data-style='stick'></div>
 
 Guanine monomer, dimer, trimer and tetramer
   You can download the full input files with:
@@ -64,8 +65,8 @@ Guanine monomer, dimer, trimer and tetramer
 
   .. raw:: html
 
-     <div style="height: 400px; width: 600px; position: relative;" class='viewer_3Dmoljs' data-href='../_static/hexamer.xyz' data-type='xyz' data-backgroundcolor='0xffffff' data-style='stick'></div>
-     <div style="height: 400px; width: 600px; position: relative;" class='viewer_3Dmoljs' data-href='../_static/hexamer.xyz' data-type='xyz' data-backgroundcolor='0xffffff' data-style='stick'></div>
+     <div style="height: 400px; width: 600px; position: relative;" class='viewer_3Dmoljs' data-href='_static/hexamer.xyz' data-type='xyz' data-backgroundcolor='0xffffff' data-style='stick'></div>
+     <div style="height: 400px; width: 600px; position: relative;" class='viewer_3Dmoljs' data-href='_static/hexamer.xyz' data-type='xyz' data-backgroundcolor='0xffffff' data-style='stick'></div>
 
 
 .. literalinclude:: inputs/g1.inp
