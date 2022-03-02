@@ -84,9 +84,9 @@ In this exercise, we want to explore three aspects of the SCF code in VeloxChem:
    problem using an increasing number of workers?  We will use a zinc-porphyrin
    system for this investigation.
 #. Its **weak scaling**: how does the time-to-solution change when both the
-   workload and the number of workers increase? Note that the increases in
-   workload and wokers are not necessarily proportional.  We will use a series
-   of guanine oligomers for this purpose.
+   workload and the number of workers increase? Note that the workload of an
+   SCF calculation increases nonlinearly with respect to the number of basis 
+   functions. We will use a series of guanine oligomers for this purpose.
 #. How do MPI and OpenMP settings affect the performance of SCF calculation on
    a single node?
 
@@ -262,8 +262,10 @@ detailed breakdown of timings in each SCF iteration:
 
            .. code-block:: shell
 
-              --ntasks-per-node=2
-              --cpus-per-task=128  # 64x2 because of SMT
+              #SBATCH --nodes=1
+              #SBATCH --ntasks-per-node=2
+              #SBATCH --cpus-per-task=128  # 64x2 because of SMT
+
               export OMP_NUM_THREADS=64
               export OMP_PLACES=cores
 
