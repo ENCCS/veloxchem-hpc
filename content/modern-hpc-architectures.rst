@@ -188,7 +188,7 @@ Different types of compute nodes in the CPU partition:
 -  2 x 2048 GB (SNIC giant nodes)
 -  36 x 256 GB (KTH industry/business research nodes)
 
-The performance of the CPU partition is 2.279 petaFlops according to the Top500
+The performance of the CPU partition is 2.279 petaFLOPS according to the Top500
 list (Nov 2021).
 
 .. typealong:: Exploring the memory hierarchy on Dardel
@@ -218,7 +218,7 @@ list (Nov 2021).
 
      .. code-block:: shell
 
-        salloc -N 1 -t 00:05:00 -A edu22.veloxchem -p main
+        salloc -N 1 -t 00:05:00 -p main -A edu22.veloxchem --reservation velox-lab1
         srun -n 1 numactl --hardware
         exit
 
