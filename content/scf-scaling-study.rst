@@ -1,8 +1,8 @@
 .. _scf-scaling-study:
 
 
-Scaling study: self-consistent field calculation
-================================================
+Scaling study: self-consistent field calculations
+=================================================
 
 .. objectives::
 
@@ -26,8 +26,28 @@ An SCF calculation consists essentially of three parts:
 
       F_{\mu\nu} = h_{\mu\nu} + \sum_{\kappa\lambda} \left[ 2(\mu\nu|\kappa\lambda) - (\mu\kappa|\nu\lambda) \right]D_{\lambda\kappa}
 
-   by assembling one-, :math:`h_{\mu\nu}`, and two-electron integrals
-   :math:`(\mu\nu|\kappa\lambda)`, and
+   by assembling one-electron:
+
+   .. math::
+
+      h_{\mu\nu} =
+      \left\langle
+      \chi_{\mu}
+      \left| -\frac{1}{2}\nabla^{2} -\sum_{A=1}^{N_\mathrm{at}} \frac{Z_{A}}{|\mathbf{R}_A - \mathbf{r}|} \right|
+      \chi_{\nu}
+      \right\rangle
+
+   and two-electron integrals:
+
+   .. math::
+
+      (\mu\nu|\kappa\lambda) =
+      \left\langle
+      \chi_{\mu}(\mathbf{r})\chi_{\nu}(\mathbf{r})
+      \left| \frac{1}{|\mathbf{r} - \mathbf{r}^{\prime}|} \right|
+      \chi_{\kappa}(\mathbf{r}^{\prime})\chi_{\lambda}(\mathbf{r}^{\prime})
+      \right\rangle
+
 #. Diagonalization of Fock matrix and formation of new density matrix.
 
 While the last step formally scales with the *third power* of the dimension of

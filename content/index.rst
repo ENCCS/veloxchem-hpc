@@ -53,7 +53,7 @@ You will learn how to:
    performance-theory
    scf-scaling-study
    eri-overview
-   resp
+   linrsp-scaling-study
    x-ray-cpp
    exciton
    ntos
@@ -67,7 +67,7 @@ You will learn how to:
    30 min ; :doc:`performance-theory`
    30 min ; :doc:`scf-scaling-study`
    30 min ; :doc:`eri-overview`
-   30 min ; :doc:`resp`
+   30 min ; :doc:`linrsp-scaling-study`
    30 min ; :doc:`x-ray-cpp`
    30 min ; :doc:`exciton`
    30 min ; :doc:`ntos`

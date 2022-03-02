@@ -116,7 +116,7 @@ half days.
    10:55 - 11:05 ; Break
    11:05 - 11:35 ; :ref:`scf-scaling-study`
    11:35 - 11:45 ; Break
-   11:45 - 12:15 ; :ref:`linrsp-scaling-study`
+   11:45 - 12:15 ; :ref:`eri-overview`
    12:15 - 12:30 ; Wrap-up
 
 **Day 2 - Friday 4 March 2022**
@@ -131,7 +131,7 @@ half days.
 
 
     9:00 -  9:10 ; What did we cover yesterday?
-    9:10 -  9:40 ; :ref:`resp`
+    9:10 -  9:40 ; :ref:`linrsp-scaling-study`
     9:40 -  9:50 ; Break
     9:50 - 10:30 ; :ref:`x-ray-cpp`
    10:30 - 10:40 ; Break

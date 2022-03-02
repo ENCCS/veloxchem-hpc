@@ -79,6 +79,17 @@ You can read more about the VeloxChem input keywords in
 .. literalinclude:: inputs/porphyrin.inp
    :emphasize-lines: 9-12
 
+You can download it with:
+
+.. code-block:: shell
+
+   wget https://raw.githubusercontent.com/ENCCS/veloxchem-hpc/main/content/inputs/porphyrin.inp
+
+You can set the ``timing`` keyword in `the response group
+<https://docs.veloxchem.org/inputs/keywords.html#the-response-group>`_ if you
+want to look at a breakdown of the total time by specific sub-tasks in the
+calculation.
+
 Exercise
 --------
 
@@ -96,7 +107,7 @@ Exercise
     to chemically unique atoms is also available. Results for a smaller system
     (vinylfluoride) are also available.
     
-- Run scalability test
+- Investigate strong scalability for these workload
 
     Run the CPP calculation on different number of nodes.
     Plot the speedup with respect to the number of nodes.
