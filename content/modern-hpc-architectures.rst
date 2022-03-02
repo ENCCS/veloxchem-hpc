@@ -148,6 +148,8 @@ To further complicate matters, *cores* on each socket might also be arranged in
 **non-uniform memory access** (NUMA) domains. Cores within each socket might
 experience different latency and bandwidth when accessing memory.
 
+.. _numa:
+
 .. figure:: img/numa.svg
    :align: center
    :scale: 80%
