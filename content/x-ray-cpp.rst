@@ -66,7 +66,7 @@ System: free-base porphyrin
 
 .. raw:: html
 
-   <div style="height: 400px; width: 600px; position: relative;" class='viewer_3Dmoljs' data-href='../_static/porphyrin.xyz' data-type='xyz' data-backgroundcolor='0xffffff' data-style='stick'></div>
+   <div style="height: 400px; width: 600px; position: relative;" class='viewer_3Dmoljs' data-href='_static/porphyrin.xyz' data-type='xyz' data-backgroundcolor='0xffffff' data-style='stick'></div>
 
 
 Input file
@@ -91,7 +91,7 @@ Exercise
 
     The absorption spectrum will be printed at the end of the output file.
     Compare this to the results provided in `this Jupyter notebook on MyBinder
-    <https://mybinder.org/v2/gh/ENCCS/veloxchem-workshop/master?urlpath=lab%2Ftree%2Fcontent%2Fnotebooks%2Fcpp_analysis%2Fvlx_cpp.ipynb>`_,
+    <https://mybinder.org/v2/gh/ENCCS/veloxchem-hpc/main?urlpath=lab%2Ftree%2Fcontent%2Fnotebooks%2Fcpp_analysis%2Fvlx_cpp.ipynb>`_,
     where analysis of polarization dependence and the association of features
     to chemically unique atoms is also available. Results for a smaller system
     (vinylfluoride) are also available.

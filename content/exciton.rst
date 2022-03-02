@@ -50,7 +50,7 @@ System: oligothiophene self-assembly
 
 .. raw:: html
 
-   <div style="height: 400px; width: 600px; position: relative;" class='viewer_3Dmoljs' data-href='../_static/hexamer.xyz' data-type='xyz' data-backgroundcolor='0xffffff' data-style='stick'></div>
+   <div style="height: 400px; width: 600px; position: relative;" class='viewer_3Dmoljs' data-href='_static/hexamer.xyz' data-type='xyz' data-backgroundcolor='0xffffff' data-style='stick'></div>
 
 
 Input file
