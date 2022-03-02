@@ -34,6 +34,7 @@ Input file
 
 Below is the input file for generating NTOs and detachment/attachment
 densities.
+You can read more about the input keywords in
 `this page <https://veloxchem.org/docs/keywords.html>`_.
 
 .. literalinclude:: inputs/bpvb.inp

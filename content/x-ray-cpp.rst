@@ -94,7 +94,7 @@ Exercise
 
 - Submit a job
 
-    Runs the above example on **2** nodes.
+    Runs the above example on 2 nodes.
     On Dardel this will take around 2 minutes.
 
 - Plot and analyse the spectrum
