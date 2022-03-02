@@ -48,15 +48,21 @@ Example submission script::
 
 .. note::
 
-   There are two ways to log in to Dardel.
+   - There are two ways to log in to Dardel.
 
-   - If you have a SUPR account, you can choose to log in using SSH key pairs.
-     See `How to login in with SSH keys
-     <https://www.pdc.kth.se/support/documents/login/ssh_login.html>`_
+     - If you have a SUPR account, you can choose to log in using SSH key pairs.
+       See `How to login in with SSH keys
+       <https://www.pdc.kth.se/support/documents/login/ssh_login.html>`_
 
-   - If you don't have a SUPR account, or do not know what SUPR is, you can
-     log in using a Kerberos ticket. See `How to Login with kerberos
-     <https://www.pdc.kth.se/support/documents/login/login.html>`_
+     - If you don't have a SUPR account, or do not know what SUPR is, you can
+       log in using a Kerberos ticket. See `How to Login with kerberos
+       <https://www.pdc.kth.se/support/documents/login/login.html>`_
+
+   - The time allocation for the workshop is ``edu22.veloxchem``
+
+     - For the first day we can use the reservation ``velox-lab1``
+
+     - For the second day we can use the reservation ``velox-lab2``
 
 
 Exercise

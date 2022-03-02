@@ -23,24 +23,15 @@ You will learn how to:
 
 .. prereq::
 
-   .. todo:: review and adjust!
+   We will use the `Dardel
+   <https://www.pdc.kth.se/hpc-services/computing-systems/about-dardel-1.1053338>`_
+   supercomputer for hands-on exercises.  Please follow these :ref:`detailed
+   instructions <hpc-setup>` on how to use the VeloxChem module on Dardel.
 
-   Before attending this workshop, please make sure that you have the
-   prerequisite software and hardware available.
+   You can also install VeloxChem on your own computer, following
+   these :ref:`detailed instructions <setup>`, or run `Jupyter notebooks
+   <https://jupyter.org/>`_ in the cloud using `Binder <https://mybinder.org>`_.
 
-   Day 1
-       We will work within `Jupyter notebooks <https://jupyter.org/>`_. We have
-       set up this lesson such that it can be run entirely within your browser,
-       using cloud infrastructure.
-       You can also use your own computer, provided that it has the necessary
-       tools installed. If that is not the case, please follow these
-       :ref:`detailed instructions <setup>`.
-
-   Day 2
-       You will need access to a supercomputer.  Any questions on how to use a
-       particular HPC resource should be directed to the appropriate support
-       desk.  Please follow these :ref:`detailed instructions <compiling>` on
-       how to set up the necessary software stack.
 
 .. toctree::
    :hidden:

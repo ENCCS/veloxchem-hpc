@@ -3,21 +3,16 @@
 Setting up your system
 ======================
 
-In order to follow this workshop, you will need access to VeloxChem.
+In this workshop we will have hands-on exercises on `Dardel
+<https://www.pdc.kth.se/hpc-services/computing-systems/about-dardel-1.1053338>`_,
+where a VeloxChem module is readily available.
 
-You can work on the content of **Day 1** entirely online using `Binder
-<https://mybinder.org>`_ to run the Jupyter notebooks in the cloud.
 If you prefer to work locally, you will need to set up your Python environment correctly:
 we recommend using the `Conda package and enviroment manager
 <https://docs.conda.io/en/latest/>`_, as it provides a convenient way to install
 binary packages, including VeloxChem, in an isolated, reproducible software environment.
 
-.. todo::
-
-   * Mention that on PDC there is a module (or there will be)
-   * These instructions depend on the final release.
-
-   For the content of Day 2, you will have to compile VeloxChem on your cluster.
+You can also try `Binder <https://mybinder.org>`_ to run the Jupyter notebooks in the cloud.
 
 
 Install Miniconda
@@ -58,12 +53,3 @@ You then need to activate the new environment by::
 
 Now you should have VeloxChem, Python, JupyterLab and a few other packages
 installed!
-
-
-.. _compiling:
-
-Compiling VeloxChem from source
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Please refer to the instructions for `Setting up VeloxChem on a HPC cluster
-<https://enccs.github.io/veloxchem-workshop/hpc-setup/>`_.
