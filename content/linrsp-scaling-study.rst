@@ -24,8 +24,10 @@ We will re-use the same systems as for the SCF scaling study.
 As detailed in `this page <https://veloxchem.org/docs/keywords.html>`_, we add a response task to the input to calculate 5 excited states:
 
 .. literalinclude:: inputs/zn-ph-linrsp.inp
-   :emphasize-lines: 9-11
-   :lines: 9-11
+   :lines: 1-3
+
+.. literalinclude:: inputs/zn-ph-linrsp.inp
+   :lines: 9-13
 
 We can set the ``timing`` option in the response section as well, in order to obtain a detailed breakdown of the time spent within each task in the calculation.
 
@@ -54,8 +56,9 @@ Exercise
          (``g3.inp``), and tetramer (``g4.inp``) on 2, 4, 6, and 8 nodes,
          respectively.
          Use 8 MPI ranks per node and 16 OpenMP threads per rank.
-      #. Gather total execution times from the output files and plot them
-         against the number of basis functions.
+      #. Gather total execution times from the output files and plot the 
+         computational cost (taking into account number of nodes) 
+         against the number of basis functions. Use logarithm on both axes.
 
 
 .. callout:: Plotting your results
