@@ -319,7 +319,7 @@ list (Nov 2021).
            7:  32  32  32  32  12  12  12  10
 
 
-.. typealong:: Efficiently utilizing resources/hardware on Dardel
+.. typealong:: Efficient utilization of resources/hardware on Dardel
 
    Nowadays more and more scientific software are parallelized over 
    both MPI and OpenMP.
@@ -333,7 +333,10 @@ list (Nov 2021).
    ``OMP_NUM_THREADS`` and ``OMP_PLACES``.
 
    Here are some examples of requesting different combinations of MPI 
-   tasks and OpenMP threads on Dardel:
+   tasks and OpenMP threads on Dardel. Please note that ``--cpus-per-task``
+   should be set to 2x ``OMP_NUM_THREADS`` because simultaneous multithreading
+   (SMT) is turned on.
+
 
    - 128 MPI x 1 OMP
 
