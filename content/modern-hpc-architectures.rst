@@ -171,22 +171,22 @@ a GPU *partition* is planned.
 
 .. image:: https://www.pdc.kth.se/polopoly_fs/1.1053343.1614296818!/image/3D%20marketing%201%20row%20cropped%201000pW%20300ppi.jpg
    :align: center
-   :scale: 80%
+   :scale: 60%
 
 Anatomy of supercomputer:
 
-  - Dardel consists of several *cabinets* (also known as racks)
-  - Each cabinet is filled with many *blades*
-  - A single blade hosts two *nodes*
-  - A node has two AMD EPYC 7742 CPUs, each with 64 cores clocking at 2.25GHz
+- Dardel consists of several *cabinets* (also known as racks)
+- Each cabinet is filled with many *blades*
+- A single blade hosts two *nodes*
+- A node has two AMD EPYC 7742 CPUs, each with 64 cores clocking at 2.25GHz
 
 Different types of compute nodes in the CPU partition:
 
-  -  488 x 256 GB (SNIC thin nodes)
-  -  20 x 512 GB (SNIC large nodes)
-  -  8 x 1024 GB (SNIC huge nodes)
-  -  2 x 2048 GB (SNIC giant nodes)
-  -  36 x 256 GB (KTH industry/business research nodes)
+-  488 x 256 GB (SNIC thin nodes)
+-  20 x 512 GB (SNIC large nodes)
+-  8 x 1024 GB (SNIC huge nodes)
+-  2 x 2048 GB (SNIC giant nodes)
+-  36 x 256 GB (KTH industry/business research nodes)
 
 .. typealong:: Exploring the memory hierarchy on Dardel
 
