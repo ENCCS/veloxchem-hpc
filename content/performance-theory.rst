@@ -81,13 +81,13 @@ parallel. While for :math:`T_{1}` it holds:
 
    T_{1} = W_{\mathrm{ser}} + W_{\mathrm{par}}
 
-while for :math:`T_{P}`:
+for :math:`T_{P}` we have:
 
 .. math::
 
    T_{P} \geq W_{\mathrm{ser}} + \frac{W_{\mathrm{par}}}{P}
 
-the equality being valid for a "perfectly" parallelization.
+the equality being valid for a "perfect" parallelization.
 
 .. _amdahl:
 

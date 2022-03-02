@@ -51,7 +51,7 @@ An SCF calculation consists essentially of three parts:
 #. Diagonalization of Fock matrix and formation of new density matrix.
 
 While the last step formally scales with the *third power* of the dimension of
-the Fock matrix, it is usually the formation of this matrix itself in step 2
+the Fock matrix, it is usually the formation of the matrix itself in step 2
 that is the most time-consuming.
 The formation of the Fock matrix and in particular the computation of the
 electron-repulsion integrals (ERIs) are natural targets for code optimization
@@ -78,21 +78,17 @@ efficient Fock builds:
 In contrast, the first and third steps are carried out using OpenMP threading on
 a single MPI process. [*]_
 
-In this exercise, we'll examine the scaling of SCF calculations using two
-examples.  The first example is zinc-porphyrin that can be used for strong
-scaling, see :ref:`amdahl`.  The second example is guanine oligomer that can be
-use for weak scaling, see :ref:`gustafson`.
-
 In this exercise, we want to explore three aspects of the SCF code in VeloxChem:
 
 #. Its **strong scaling**: how does the time-to-solution change for a fixed-size
    problem using an increasing number of workers?  We will use a zinc-porphyrin
    system for this investigation.
-#. Its **weak scaling**: how does the time-to-solution change when both the workload
-   and the number of workers increase? Note that the increase is not proportional.
-   We will use a series of guanine oligomers for this purpose.
-#. How does MPI/OpenMP setting affect the performance of SCF calculation on a single
-   node?
+#. Its **weak scaling**: how does the time-to-solution change when both the
+   workload and the number of workers increase? Note that the increases in
+   workload and wokers are not necessarily proportional.  We will use a series
+   of guanine oligomers for this purpose.
+#. How do MPI and OpenMP settings affect the performance of SCF calculation on
+   a single node?
 
 Systems and input files
 -----------------------
@@ -174,8 +170,8 @@ A sample submission script:
     --hardware`` showed that each socket is in NPS-4 configuration.
 
   Thus 8 is the number of MPI ranks which will be used in the calculation.
-- **Line 15** tells to use 16 OpenMP threads on MPI rank. This ensures full usage of
-  all cores in the given NUMA domain/MPI rank.
+- **Line 15** tells to use 16 OpenMP threads on each MPI rank. This ensures
+  full usage of all cores in the given NUMA domain/MPI rank.
 - Finally, **line 16** specifies that threads should be mapped to the cores.
 
 This sample script will use a single node on Dardel:
@@ -264,10 +260,12 @@ detailed breakdown of timings in each SCF iteration:
          - 1 node, 8 MPI ranks, 16 OpenMP threads
          - 1 node, 2 MPI ranks, 64 OpenMP threads
 
-           * ``--ntasks-per-node=2``
-           * ``--cpus-per-task=128  # 64x2 because of SMT``
-           * ``export OMP_NUM_THREADS=64``
-           * ``export OMP_PLACES=cores``
+           .. code-block:: shell
+
+              --ntasks-per-node=2
+              --cpus-per-task=128  # 64x2 because of SMT
+              export OMP_NUM_THREADS=64
+              export OMP_PLACES=cores
 
          Both calculation setups use one full node on Dardel, but they are not
          equally efficient. What might make it so?
