@@ -89,6 +89,8 @@ while for :math:`T_{P}`:
 
 the equality being valid for a "perfectly" parallelization.
 
+.. _amdahl:
+
 Amdahl's law
 ~~~~~~~~~~~~
 
@@ -130,6 +132,7 @@ scalability is essentially bound by the serial fraction:
 
    \mathrm{speedup}_{\infty} \leq \frac{1}{f}
 
+.. _gustafson:
 
 Gustafson's law
 ~~~~~~~~~~~~~~~
