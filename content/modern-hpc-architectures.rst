@@ -169,7 +169,7 @@ The Dardel system at PDC
 Dardel is the new high-performance cluster at PDC: it has a CPU *partition* and
 a GPU *partition* is planned.
 
-.. image:: https://www.pdc.kth.se/polopoly_fs/1.1053343.1614296818!/image/3D%20marketing%201%20row%20cropped%201000pW%20300ppi.jpg
+.. figure:: https://www.pdc.kth.se/polopoly_fs/1.1053343.1614296818!/image/3D%20marketing%201%20row%20cropped%201000pW%20300ppi.jpg
    :align: center
    :scale: 80%
 
