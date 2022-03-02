@@ -74,7 +74,7 @@ Input file
 
 Below is the input file for a CPP calculation of free-base porphyrin.
 You can read more about the VeloxChem input keywords in
-`this page <https://docs.veloxchem.org/inputs/keywords.html>`_.
+`this page <https://veloxchem.org/docs/keywords.html>`_.
 
 .. literalinclude:: inputs/porphyrin.inp
    :emphasize-lines: 9-12
@@ -85,8 +85,7 @@ You can download it with:
 
    wget https://raw.githubusercontent.com/ENCCS/veloxchem-hpc/main/content/inputs/porphyrin.inp
 
-You can set the ``timing`` keyword in `the response group
-<https://docs.veloxchem.org/inputs/keywords.html#the-response-group>`_ if you
+You can set the ``timing`` keyword in the response group if you
 want to look at a breakdown of the total time by specific sub-tasks in the
 calculation.
 

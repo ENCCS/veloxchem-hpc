@@ -57,8 +57,8 @@ Input file
 ----------
 
 Below is the input file for *ab initio* exciton model calculation of oligothiophene
-self-assembly. You can read more about the VeloxChem input keywords in
-`this page <https://docs.veloxchem.org/inputs/keywords.html>`_.
+self-assembly. You can read more about the input keywords in
+`this page <https://docs.veloxchem.org/inputs/keywords.html#the-exciton-group>`_.
 
 .. literalinclude:: inputs/hexamer.inp
    :emphasize-lines: 9-15
