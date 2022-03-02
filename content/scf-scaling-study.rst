@@ -88,11 +88,11 @@ In this exercise, we want to explore three aspects of the SCF code in VeloxChem:
 #. Its **strong scaling**: how does the time-to-solution change for a fixed-size
    problem using an increasing number of workers?  We will use a zinc-porphyrin
    system for this investigation.
-#. Its **weak scaling**: how does the time-to-solution change when the workload
-   increases proportionally to the number of workers?  We will use a series of
-   guanine oligomers for this purpose.
-#. How efficient are SCF calculations on a single node? Can we observe strong
-   scaling up to 128 OpenMP threads?
+#. Its **weak scaling**: how does the time-to-solution change when both the workload
+   and the number of workers increase? Note that the increase is not proportional.
+   We will use a series of guanine oligomers for this purpose.
+#. How does MPI/OpenMP setting affect the performance of SCF calculation on a single
+   node?
 
 Systems and input files
 -----------------------
@@ -238,7 +238,7 @@ detailed breakdown of timings in each SCF iteration:
       #. Gather total execution times from the output files and plot the speedup
          against the number of nodes.
       #. Gather the breakout of timings per SCF iteration from the output files.
-         Plot the speedup of ``FockBuild`` and ``ERI`` with respect to the
+         Plot the speedup of ``FockBuild`` with respect to the
          number of nodes.
 
    .. tab:: Weak scaling: guanine oligomers
@@ -247,22 +247,19 @@ detailed breakdown of timings in each SCF iteration:
          (``g3.inp``), and tetramer (``g4.inp``) on 1, 2, 3, and 4 nodes,
          respectively.
          Use 8 MPI ranks per node and 16 OpenMP threads per rank.
-      #. Gather total execution times from the output files and plot them
-         against the number of basis functions.
+      #. Gather total execution times from the output files and plot the
+         computational cost (taking into account number of nodes) against 
+         the number of basis functions. Use logarithm scale on both axes.
       #. Gather the breakout of timings per SCF iteration from the output files.
-         Plot the timings of ``FockBuild``, ``ERI``, and ``FockDiag`` with
-         respect to the number of basis functions.
+         Plot the computational cost of ``FockBuild`` with respect to the number
+         of basis functions.
 
    .. tab:: MPI+OpenMP usage
 
       Run the zinc porphyrin example:
 
-      #. Allocating all resources on a node to OpenMP threads.
-         Use 1 MPI rank and 16, 32, 64, and 128 OpenMP threads.
-         Gather total execution times from the output files and plot the speedup
-         against the number of threads.
-      #. Compare the total execution time, the timings for ``FockBuild`` and
-         ``ERI`` obtained using:
+      #. Compare the total execution time and the timings for ``FockBuild``
+         obtained using:
 
          - 1 node, 8 MPI ranks, 16 OpenMP threads
          - 1 node, 2 MPI ranks, 64 OpenMP threads (use ``OMP_PLACES=sockets``)
