@@ -188,6 +188,9 @@ Different types of compute nodes in the CPU partition:
 -  2 x 2048 GB (SNIC giant nodes)
 -  36 x 256 GB (KTH industry/business research nodes)
 
+The performance of the CPU partition is 2.279 petaFlops according to the Top500
+list (Nov 2021).
+
 .. typealong:: Exploring the memory hierarchy on Dardel
 
    Each of Dardel's node is dual-socket: the memory latency and bandwidth will
