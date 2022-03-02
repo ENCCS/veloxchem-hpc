@@ -65,17 +65,7 @@ Guanine monomer, dimer, trimer and tetramer
 
   .. raw:: html
 
-     <div style="height: 400px; width: 600px; position: relative;" class='viewer_3Dmoljs' data-href='_static/hexamer.xyz' data-type='xyz' data-backgroundcolor='0xffffff' data-style='stick'></div>
-     <div style="height: 400px; width: 600px; position: relative;" class='viewer_3Dmoljs' data-href='_static/hexamer.xyz' data-type='xyz' data-backgroundcolor='0xffffff' data-style='stick'></div>
-
-
-.. literalinclude:: inputs/g1.inp
-
-.. literalinclude:: inputs/g2.inp
-
-.. literalinclude:: inputs/g3.inp
-
-.. literalinclude:: inputs/g4.inp
+     <div style="height: 400px; width: 400px; position: relative;" class='viewer_3Dmoljs' data-href='_static/g4.xyz' data-type='xyz' data-backgroundcolor='0xffffff' data-style='stick'></div>
 
 
 Exercise
