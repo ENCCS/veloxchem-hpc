@@ -263,10 +263,11 @@ detailed breakdown of timings in each SCF iteration:
 
          - 1 node, 8 MPI ranks, 16 OpenMP threads
          - 1 node, 2 MPI ranks, 64 OpenMP threads
-           - ``--ntasks-per-node=2``
-           - ``--cpus-per-task=128  # 2x64 because of SMT``
-           - ``export OMP_NUM_THREADS=64``
-           - ``export OMP_PLACES=cores``
+
+           * ``--ntasks-per-node=2``
+           * ``--cpus-per-task=128  # 64x2 because of SMT``
+           * ``export OMP_NUM_THREADS=64``
+           * ``export OMP_PLACES=cores``
 
          Both calculation setups use one full node on Dardel, but they are not
          equally efficient. What might make it so?
