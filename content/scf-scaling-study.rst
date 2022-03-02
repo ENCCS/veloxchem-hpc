@@ -80,13 +80,12 @@ a single MPI process. [*]_
 
 In this exercise, we want to explore three aspects of the SCF code in VeloxChem:
 
-#. Its **strong scaling**: how does the time-to-solution change for a fixed-size
+#. **Strong scaling**: how does the time-to-solution change for a fixed-size
    problem using an increasing number of workers?  We will use a zinc-porphyrin
    system for this investigation.
-#. Its **weak scaling**: how does the time-to-solution change when both the
-   workload and the number of workers increase? Note that the workload of an
-   SCF calculation increases nonlinearly with respect to the number of basis 
-   functions. We will use a series of guanine oligomers for this purpose.
+#. **Scaling of SCF**: how does the computational cost change when the number
+   of basis functions increases? We will use a series of guanine oligomers for 
+   this purpose.
 #. How do MPI and OpenMP settings affect the performance of SCF calculation on
    a single node?
 
@@ -237,7 +236,7 @@ detailed breakdown of timings in each SCF iteration:
          Plot the speedup of ``FockBuild`` with respect to the
          number of nodes.
 
-   .. tab:: Weak scaling: guanine oligomers
+   .. tab:: Scaling of SCF: guanine oligomers
 
       #. Run the guanine monomer (``g1.inp``), dimer (``g2.inp``), trimer
          (``g3.inp``), and tetramer (``g4.inp``) on 1, 2, 3, and 4 nodes,

@@ -50,7 +50,7 @@ Exercise
       #. Gather total execution times from the output files and plot the speedup
          against the number of nodes.
 
-   .. tab:: Weak scaling: guanine oligomers
+   .. tab:: Scaling of linear response: guanine oligomers
 
       #. Run the guanine monomer (``g1.inp``), dimer (``g2.inp``), trimer
          (``g3.inp``), and tetramer (``g4.inp``) on 2, 4, 6, and 8 nodes,

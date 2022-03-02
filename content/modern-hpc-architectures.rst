@@ -319,6 +319,75 @@ list (Nov 2021).
            7:  32  32  32  32  12  12  12  10
 
 
+.. typealong:: Efficiently utilizing resources/hardware on Dardel
+
+   Nowadays more and more scientific software are parallelized over 
+   both MPI and OpenMP.
+   When running hybrid MPI/OpenMP software on multi-core compute nodes, 
+   there are many choices in the combination of MPI processes and OpenMP 
+   threads. 
+
+   On Dardel this can be controlled by the SLURM job script, where user
+   can specify the number of MPI tasks per node. The OpenMP threads can
+   be controlled by relevant environment variables such as 
+   ``OMP_NUM_THREADS`` and ``OMP_PLACES``.
+
+   Here are some examples of requesting different combinations of MPI 
+   tasks and OpenMP threads on Dardel:
+
+   - 128 MPI x 1 OMP
+
+     .. code-block:: shell
+
+        #SBATCH --nodes=1
+        #SBATCH --ntasks-per-node=128
+
+        export OMP_NUM_THREADS=1
+        export OMP_PLACES=cores
+
+   - 64 MPI x 2 OMP
+
+     .. code-block:: shell
+
+        #SBATCH --nodes=1
+        #SBATCH --ntasks-per-node=64
+        #SBATCH --cpus-per-task=4  # 2x2 because of SMT
+
+        export OMP_NUM_THREADS=2
+        export OMP_PLACES=cores
+
+   - 8 MPI x 16 OMP
+
+     .. code-block:: shell
+
+        #SBATCH --nodes=1
+        #SBATCH --ntasks-per-node=8
+
+        export OMP_NUM_THREADS=16
+        export OMP_PLACES=cores
+
+   - 2 MPI x 64 OMP
+
+     .. code-block:: shell
+
+        #SBATCH --nodes=1
+        #SBATCH --ntasks-per-node=2
+        #SBATCH --cpus-per-task=128  # 64x2 because of SMT
+
+        export OMP_NUM_THREADS=64
+        export OMP_PLACES=cores
+
+   - 1 MPI x 128 OMP
+
+     .. code-block:: shell
+
+        #SBATCH --nodes=1
+        #SBATCH --ntasks-per-node=1
+
+        export OMP_NUM_THREADS=128
+        export OMP_PLACES=cores
+
+
 .. keypoints::
 
    - It is not possible to achieve higher clock rates: more performing hardware
