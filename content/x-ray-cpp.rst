@@ -107,7 +107,44 @@ Exercise
     to chemically unique atoms is also available. Results for a smaller system
     (vinylfluoride) are also available.
     
-- Investigate strong scalability for these workload
+- Investigate strong scalability for the CPP workload
 
     Run the CPP calculation on different number of nodes.
     Plot the speedup with respect to the number of nodes.
+
+
+.. callout:: Plotting your results
+
+   You can adapt this sample script.
+
+   .. code-block:: python
+
+      import numpy as np
+      import plotly.graph_objs as go
+
+      # insert your data!
+      nnodes = np.array([1, 2, 3, 4])
+
+      # insert your data!
+      timings = np.array([1, 2, 3, 4])
+      speedup = timings[0] / timings
+
+      fig = go.Figure()
+
+      fig.add_trace(
+          go.Scatter(
+              name=f"SCF",
+              x=nnodes,
+              y=speedup,
+              mode="lines+markers",
+              hovertemplate="~%{y:.2f}x<extra></extra>",
+          )
+      )
+
+      fig.update_layout(
+          title="SCF Speedup",
+          xaxis_title="Number of nodes",
+          yaxis_title="Speedup",
+          height=500,
+          width=600,
+      )

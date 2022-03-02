@@ -271,4 +271,40 @@ detailed breakdown of timings in each SCF iteration:
          These 3 calculation setups use one full node on Dardel, but they are not
          equally efficient. What might make it so?
 
+.. callout:: Plotting your results
+
+   You can adapt this sample script.
+
+   .. code-block:: python
+
+      import numpy as np
+      import plotly.graph_objs as go
+
+      # insert your data!
+      nnodes = np.array([1, 2, 3, 4])
+
+      # insert your data!
+      timings = np.array([1, 2, 3, 4])
+      speedup = timings[0] / timings
+
+      fig = go.Figure()
+
+      fig.add_trace(
+          go.Scatter(
+              name=f"SCF",
+              x=nnodes,
+              y=speedup,
+              mode="lines+markers",
+              hovertemplate="~%{y:.2f}x<extra></extra>",
+          )
+      )
+
+      fig.update_layout(
+          title="SCF Speedup",
+          xaxis_title="Number of nodes",
+          yaxis_title="Speedup",
+          height=500,
+          width=600,
+      )
+
 .. [*] MPI processes are usually also called ranks.
