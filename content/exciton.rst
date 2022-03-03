@@ -79,6 +79,24 @@ Exercise
     You can plot the UV-Vis and ECD spectra by line broadening using e.g.
     `Gaussian function <https://en.wikipedia.org/wiki/Gaussian_function>`_.
 
+    .. code-block:: python
+
+       import numpy as np
+
+       def gaussian(x, y, xmin, xmax, xstep, sigma):
+           """Gaussian broadening function
+
+           Call: xi,yi = gaussian(energies, intensities, start energy, end energy, energy step, gamma)
+           """
+
+           xi = np.arange(xmin, xmax, xstep)
+           yi = np.zeros_like(xi)
+
+           for _x, _y in zip(x, y):
+               yi += _y * np.exp( -(xj - _x)**2 / (2 * sigma**2))
+
+           return xi, yi
+
 - Examine the character of the excitations
 
     The character of the excitations will also be printed at the end of the output

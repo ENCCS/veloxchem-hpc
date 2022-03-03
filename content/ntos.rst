@@ -48,5 +48,30 @@ Exercise
     Runs the above example. On Dardel this calculation takes several minutes
     on 4 nodes.
 
-- Visualize the cube files
+- Visualize the cube files. You can launch a `MyBinder instance
+  <https://mybinder.org/v2/gh/ENCCS/veloxchem-hpc/main?urlpath=lab%2Ftree%2Fcontent%2Fnotebooks>`_
+  to look at your NTOs in a Jupyter notebook. Once instance has started up, you
+  can upload your cube files to it and use py3Dmol (already installed) as
+  follows:
 
+  .. code-block:: python
+
+     import py3Dmol as p3d
+
+     # generate view
+     v = p3d.view(width=400, height=400)
+
+     # to show the molecular geometry, we read it from a XYZ file
+     v.addModel(h2o_xyz, "xyz")
+     v.setStyle({'stick':{}})
+
+     # we read in the cube file we uploaded (might take a bit of time, depending on the filesize)
+     with open("HOMO.cube", "r") as f:
+         cube = f.read()
+
+     # negative lobe
+     v.addVolumetricData(cube, "cube", {"isoval": -0.02, "color": "blue", "opacity": 0.75})
+     # positive lobe
+     v.addVolumetricData(cube, "cube", {"isoval": 0.02, "color": "red", "opacity": 0.75})
+
+     v.show()
