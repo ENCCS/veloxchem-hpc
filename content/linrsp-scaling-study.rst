@@ -14,7 +14,7 @@ Scaling study: excitation energies with linear response
    - Perform scaling test of the linear response calculation.
 
 
-In this exercise we will run linear response calculation for excitation
+In this exercise we will run linear response calculations for excitation
 energies, using the same examples as in the SCF exercises.
 
 We aim to solve the following *generalized* eigenvalue problem:
