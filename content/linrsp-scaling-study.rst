@@ -17,6 +17,60 @@ Scaling study: excitation energies with linear response
 In this exercise we will run linear response calculation for excitation
 energies, using the same examples as in the SCF exercises.
 
+We aim to solve the following *generalized* eigenvalue problem:
+
+.. math::
+
+   \begin{equation}
+    \begin{pmatrix}
+      \mathbf{A} & \mathbf{B} \\
+      \mathbf{B}^{*} & \mathbf{A}^{*}
+    \end{pmatrix}
+    \begin{pmatrix}
+      \mathbf{X}_{n} \\
+      \mathbf{Y}_{n}
+    \end{pmatrix}
+    =
+    \omega_{n}
+    \begin{pmatrix}
+      \mathbf{1} & \mathbf{0} \\
+      \mathbf{0} & -\mathbf{1}
+    \end{pmatrix}
+  \begin{pmatrix}
+    \mathbf{X}_{n} \\
+    \mathbf{Y}_{n}
+  \end{pmatrix}.
+  \end{equation}
+
+The eigenvalues :math:`\omega_{n}` are the excitation energies.
+
+The :math:`\mathbf{A}` and :math:`\mathbf{B}` matrices appearing on the left-hand side are
+the blocks of the molecular electronic Hessian:
+
+.. math::
+
+   \begin{equation}
+   \begin{aligned}
+   A_{aibj} &= \delta_{ij}f_{ab} - \delta_{ab}f_{ij} + (ai|jb) - (ab|ji) \\
+   B_{aibj} &= (ai|bj) - (aj|ib) \\
+   \end{aligned}
+   \end{equation}
+
+whose dimensionality is :math:`(OV)^{2}`, with :math:`O` and :math:`V` the
+number of occupied and virtual molecular orbitals, respectively.
+This prevents *explicit* formation of the full Hessian, and subspace iteration
+methods need to be used to extract the first few roots.
+In such methods, the eigenvectors :math:`\begin{pmatrix} \mathbf{X}_{n} \\ \mathbf{Y}_{n} \end{pmatrix}` are expanded in a subspace of trial vectors,
+whose dimensionality is much lower than that of the full eigenproblem.
+The Hessian is projected down to this subspace where conventional full
+diagonalization algorithms can be applied. The subspace is augmented with new
+trial vectors, until a suitable convergence criterion is met.
+The efficiency of the subspace solver is determined by the first half-projection
+of the Hessian in the trial subspace, that is, by the efficiency of the routines
+performing the matrix-vector products.
+In VeloxChem, these routines are implemented as the construction of multiple
+Fock matrices in which the ERIs are contracted with perturbed density matrices.
+
 Systems and input files
 -----------------------
 
