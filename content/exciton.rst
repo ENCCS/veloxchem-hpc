@@ -82,6 +82,7 @@ Exercise
     .. code-block:: python
 
        import numpy as np
+       import plotly.graph_objects as go
 
        def gaussian(x, y, xmin, xmax, xstep, sigma):
            """Gaussian broadening function
@@ -93,11 +94,45 @@ Exercise
            yi = np.zeros_like(xi)
 
            for _x, _y in zip(x, y):
-               yi += _y * np.exp( -(xj - _x)**2 / (2 * sigma**2))
+               yi += _y * np.exp( -(xi - _x)**2 / (2 * sigma**2))
 
            return xi, yi
 
+       # insert your data!
+       exc_ene = np.array([2.8, 3.0, 3.1, 3.15])
+
+       # insert your data!
+       osc_str = np.array([0.3, 0.1, 1.0, 0.2])
+
+       x0, y0 = gaussian(exc_ene, osc_str, 2.5, 3.4, 0.01, 0.1)
+
+       fig = go.Figure()
+
+       fig.add_trace(
+           go.Scatter(
+               x=x0,
+               y=y0,
+               mode="lines",
+               name="absorption",
+           )
+       )
+
+       fig.update_layout(
+           title="Absorption",
+           xaxis_title="Excitation energy",
+           yaxis_title="",
+           height=500,
+           width=600,
+       )
+
+       fig.show()
+
 - Examine the character of the excitations
 
-    The character of the excitations will also be printed at the end of the output
+    The character of the excitations will be printed at the end of the output
     file. Find out the characters of the important excitations.
+
+    - ``LE      5e(3)`` stands for the 3rd locally excited state on monomer 5.
+
+    - ``CT      3+(H0)4-(L0)`` stands for charge transfer from HOMO of monomer
+      3 to LUMO of monomer 4.

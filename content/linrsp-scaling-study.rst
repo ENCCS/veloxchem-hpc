@@ -157,7 +157,6 @@ Exercise
 
       import numpy as np
       import plotly.graph_objects as go
-      from scipy import stats
 
       # insert your data!
       nnodes = np.array([1, 2, 3, 4])
