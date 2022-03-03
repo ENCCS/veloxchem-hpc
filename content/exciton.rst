@@ -29,7 +29,7 @@ The *ab initio* exciton model expands the Frenkel exciton model by
 taking into account charge-transfer between the chromophores, and
 is therefore more useful for studies of singly excited states.
 You may read more in `this paper <https://pubs.acs.org/doi/abs/10.1021/acs.jctc.7b00171>`_
-:cite:`Li2017-eq`
+:cite:`Li2017-eq`.
 
 In the exciton model, the Hamiltonian adopts the following matrix form
 

@@ -34,7 +34,7 @@ straightforward to interpret the excitations. The square of the diagonal
 elements of **S** reflect the importance of the associated particle-hole 
 excitations.
 You can read more about NTOs in `this paper
-<https://aip.scitation.org/doi/abs/10.1063/1.1558471>`_ :cite:`Martin2003-rl`
+<https://aip.scitation.org/doi/abs/10.1063/1.1558471>`_ :cite:`Martin2003-rl`.
 
 System: BPVB
 ------------
@@ -81,6 +81,13 @@ Exercise
   .. code-block:: python
 
      import py3Dmol as p3d
+
+     h2o_xyz = """3
+     water
+     O    0.000000000000        0.000000000000        0.000000000000
+     H    0.000000000000        0.740848095288        0.582094932012
+     H    0.000000000000       -0.740848095288        0.582094932012
+     """
 
      # generate view
      v = p3d.view(width=400, height=400)
