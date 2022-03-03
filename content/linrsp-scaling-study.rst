@@ -101,8 +101,17 @@ Exercise
 
       #. Run the zinc porphyrin example on 2, 4, 6, and 8 nodes.
          Use 8 MPI ranks per node and 16 OpenMP threads per rank.
-      #. Gather total execution times from the output files and plot the speedup
-         against the number of nodes.
+
+      #. Gather execution times of linear response from the output 
+         files and plot the speedup against the number of nodes.
+
+         .. code-block:: shell
+
+            grep 'Linear response converged' zn-ph-linrsp.out
+
+      #. Gather the breakout of timings per linear response iteration 
+         from the output files. Plot the speedup of ``ERI`` with 
+         respect to the number of nodes.
 
    .. tab:: Scaling of linear response: guanine oligomers
 
@@ -110,9 +119,29 @@ Exercise
          (``g3.inp``), and tetramer (``g4.inp``) on 2, 4, 6, and 8 nodes,
          respectively.
          Use 8 MPI ranks per node and 16 OpenMP threads per rank.
-      #. Gather total execution times from the output files and plot the 
-         computational cost (taking into account number of nodes) 
-         against the number of basis functions. Use logarithm on both axes.
+
+      #. Gather execution times of linear response from the output files 
+         and plot the computational cost (taking into account number of 
+         nodes) against the number of basis functions. Use logarithm on 
+         both axes.
+
+         .. code-block:: shell
+
+            grep 'Linear response converged' g?-linrsp.out
+
+      #. Gather the breakout of timings per linear response iteration from 
+         the output files. Plot the computational cost of ``ERI`` with 
+         respect to the number of basis functions.
+
+   .. tab:: Analysis of linear response output
+
+      #. Extract important excitations from linear response output files.
+         Use the python script from :ref:`this page <linrsp-analysis>`.
+
+         .. code-block:: shell
+
+            ml PDC/21.11 Anaconda3/2021.05 vim/8.2
+            python3 analyze_response_output.py zn-ph.out
 
 
 .. callout:: Plotting your results
