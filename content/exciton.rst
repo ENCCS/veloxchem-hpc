@@ -132,7 +132,9 @@ Exercise
     The character of the excitations will be printed at the end of the output
     file. Find out the characters of the important excitations.
 
-    - ``LE      5e(3)`` stands for the 3rd locally excited state on monomer 5.
+    Notation:
 
-    - ``CT      3+(H0)4-(L0)`` stands for charge transfer from HOMO of monomer
+    - ``LE 5e(3)`` stands for the 3rd locally excited state (S3) on monomer 5.
+
+    - ``CT 3+(H0)4-(L0)`` stands for charge transfer from HOMO of monomer
       3 to LUMO of monomer 4.

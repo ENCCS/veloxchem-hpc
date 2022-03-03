@@ -10,7 +10,6 @@ basis: def2-sv(p)
 property: absorption
 nstates: 5
 nto: yes
-detach_attach: yes
 @end
 
 @molecule

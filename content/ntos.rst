@@ -6,20 +6,19 @@ Natural transition orbitals
 
 .. objectives::
 
-   - Learn how to generate cube files for natural transition orbitals (NTOs)
-     and detachment/attachment densities.
+   - Learn how to generate cube files for natural transition orbitals (NTOs).
 
 .. keypoints::
 
    - Generate cube files for NTOs.
-   - Generate cube files for detachment/attachment densities.
+   - Compare the number of NTOs with the number of important excitations.
+   - Visualize selected cube files for NTOs.
 
 Introduction
 ------------
 
-In this exercise we will generate cube files for visualizing
-exitations. In particular, natural transition orbitals (NTOs) and
-detachment/attachment densities will be visualized.
+In this exercise we will generate NTO cube files for visualizing
+exitations.
 
 System: BPVB
 ------------
@@ -32,13 +31,12 @@ System: BPVB
 Input file
 ----------
 
-Below is the input file for generating NTOs and detachment/attachment
-densities.
+Below is the input file for generating NTO cube files.
 You can read more about the input keywords in
 `this page <https://veloxchem.org/docs/keywords.html>`_.
 
 .. literalinclude:: inputs/bpvb.inp
-   :emphasize-lines: 9-14
+   :emphasize-lines: 9-13
 
 Exercise
 --------
@@ -47,6 +45,16 @@ Exercise
 
     Runs the above example. On Dardel this calculation takes several minutes
     on 4 nodes.
+
+- Compare number of NTOs with number of important excitations
+
+    Use the python script in :ref:`this page <linrsp-analysis>`
+    to extract important excitations from output files.
+
+    .. code-block:: shell
+
+       ml PDC/21.11 Anaconda3/2021.05 vim/8.2
+       python3 analyze_response_output.py bpvb.out
 
 - Visualize the cube files. You can launch a `MyBinder instance
   <https://mybinder.org/v2/gh/ENCCS/veloxchem-hpc/main?urlpath=lab%2Ftree%2Fcontent%2Fnotebooks>`_
