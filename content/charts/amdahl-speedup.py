@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import numpy as np
-import plotly.graph_objs as go
+import plotly.graph_objects as go
 
 serial_fraction = [0.001, 0.01, 0.1, 0.3, 0.5]
 workers = np.around(np.geomspace(1, 2048, num=12)).astype(int)

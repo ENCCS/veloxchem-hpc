@@ -63,34 +63,51 @@ Exercise
 
 .. callout:: Plotting your results
 
-   You can adapt this sample script.
+   You can launch a `MyBinder instance
+   <https://mybinder.org/v2/gh/ENCCS/veloxchem-hpc/main?urlpath=lab%2Ftree%2Fcontent%2Fnotebooks>`_
+   to analyze your results in a Jupyter notebook.  You can adapt this sample
+   script.
 
    .. code-block:: python
 
       import numpy as np
-      import plotly.graph_objs as go
+      import plotly.graph_objects as go
+      from scipy import stats
 
       # insert your data!
       nnodes = np.array([1, 2, 3, 4])
 
       # insert your data!
-      timings = np.array([1, 2, 3, 4])
+      timings = np.array([1, 0.6, 0.4, 0.35])
       speedup = timings[0] / timings
 
       fig = go.Figure()
 
       fig.add_trace(
           go.Scatter(
-              name=f"Excitation energies",
+              name=f"SCF",
               x=nnodes,
               y=speedup,
-              mode="lines+markers",
+              mode="markers",
               hovertemplate="~%{y:.2f}x<extra></extra>",
           )
       )
 
+      # generate linear fit
+      slope, intercept, r_value, p_value, std_err = stats.linregress(nnodes, speedup)
+      line = slope * nnodes + intercept
+
+      fig.add_trace(
+          go.Scatter(
+              x=nnodes,
+              y=line,
+              mode="lines",
+              name=f"Fit: y = {slope:.3f}x + {intercept:.3f}",
+          )
+      )
+
       fig.update_layout(
-          title="Excitation energies speedup",
+          title="SCF Speedup",
           xaxis_title="Number of nodes",
           yaxis_title="Speedup",
           height=500,
