@@ -153,6 +153,8 @@ Exercise
 
    .. code-block:: python
 
+      # example script for strong scaling
+
       import numpy as np
       import plotly.graph_objects as go
       from scipy import stats
@@ -161,40 +163,86 @@ Exercise
       nnodes = np.array([1, 2, 3, 4])
 
       # insert your data!
-      timings = np.array([1, 0.6, 0.4, 0.35])
+      timings = np.array([10, 6, 4.5, 4])
       speedup = timings[0] / timings
 
       fig = go.Figure()
 
       fig.add_trace(
           go.Scatter(
-              name=f"SCF",
+              name=f"Linear response",
               x=nnodes,
               y=speedup,
-              mode="markers",
+              mode="lines+markers",
               hovertemplate="~%{y:.2f}x<extra></extra>",
           )
       )
 
-      # generate linear fit
-      slope, intercept, r_value, p_value, std_err = stats.linregress(nnodes, speedup)
-      line = slope * nnodes + intercept
-
-      fig.add_trace(
-          go.Scatter(
-              x=nnodes,
-              y=line,
-              mode="lines",
-              name=f"Fit: y = {slope:.3f}x + {intercept:.3f}",
-          )
-      )
-
       fig.update_layout(
-          title="SCF Speedup",
+          title="Linear response speedup",
           xaxis_title="Number of nodes",
           yaxis_title="Speedup",
           height=500,
           width=600,
       )
+
+      fig.show()
+
+
+   .. code-block:: python
+
+      # example script for scaling of linear response
+
+      import numpy as np
+      import plotly.graph_objects as go
+      from scipy import stats
+
+      # insert your data!
+      nbfs = np.array([258, 516, 774, 1032])
+
+      # insert your data!
+      nnodes = np.array([1, 2, 3, 4])
+
+      # insert your data!
+      timings = np.array([3.5, 8, 15, 26])
+      cost = timings * nnodes
+
+      log_x = np.log(nbfs)
+      log_y = np.log(cost)
+
+      # generate linear fit
+      slope, intercept, r_value, p_value, std_err = stats.linregress(log_x, log_y)
+      fit_y = np.exp(slope * log_x + intercept)
+
+      fig = go.Figure()
+
+      fig.add_trace(
+          go.Scatter(
+              x=nbfs,
+              y=fit_y,
+              mode="lines",
+              name=f"O(N^{slope:.3f})",
+          )
+      )
+
+      fig.add_trace(
+          go.Scatter(
+              name="Linear response",
+              x=nbfs,
+              y=cost,
+              mode="markers",
+          )
+      )
+
+      fig.update_layout(
+          title="Scaling of linear response",
+          xaxis_title="Number of basis functions",
+          yaxis_title="Computational cost",
+          height=500,
+          width=600,
+      )
+
+      fig.update_xaxes(type="log")
+      fig.update_yaxes(type="log")
 
       fig.show()
