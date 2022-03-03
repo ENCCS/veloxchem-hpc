@@ -307,4 +307,6 @@ detailed breakdown of timings in each SCF iteration:
           width=600,
       )
 
+      fig.show()
+
 .. [*] MPI processes are usually also called ranks.

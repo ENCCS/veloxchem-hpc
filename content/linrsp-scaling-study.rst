@@ -96,3 +96,5 @@ Exercise
           height=500,
           width=600,
       )
+
+      fig.show()
