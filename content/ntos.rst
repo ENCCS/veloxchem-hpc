@@ -19,6 +19,22 @@ Introduction
 
 In this exercise we will generate NTO cube files for visualizing
 exitations.
+NTOs are given by singular value decomposition (SVD) of single particle
+transition density matrix **T**
+
+.. math::
+
+   \begin{equation}
+     U S V^{\dagger} = T
+   \end{equation}
+
+where **S** is diagonal matrix and **U** and **V** are unitary transformation
+matrices. Transformation of orbital sets by **U** and **V** makes it more
+straightforward to interpret the excitations. The square of the diagonal 
+elements of **S** reflect the importance of the associated particle-hole 
+excitations.
+You can read more about NTOs in `this paper
+<https://aip.scitation.org/doi/abs/10.1063/1.1558471>`_ :cite:`Martin2003-rl`
 
 System: BPVB
 ------------
