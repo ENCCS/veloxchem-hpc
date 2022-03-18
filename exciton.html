@@ -1,0 +1,804 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exciton calculation</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx_lesson.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/overrides.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/minipres.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://3Dmol.org/build/3Dmol-min.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Natural transition orbitals" href="ntos.html" />
+    <link rel="prev" title="Complex polarization propagator in the X-ray region" href="x-ray-cpp.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/ENCCS-PDC-logos.jpg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   VeloxChem: quantum chemistry towards pre-exascale and beyond
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="setup.html">
+   Setting up your system
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hpc-setup.html">
+   Setting up VeloxChem on a HPC cluster
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  The lesson
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks/first-steps.html">
+   First steps with VeloxChem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="modern-hpc-architectures.html">
+   Modern HPC architectures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="performance-theory.html">
+   Performance theory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scf-scaling-study.html">
+   Scaling study: self-consistent field calculations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="eri-overview.html">
+   An overview of electron-repulsion integral evaluation algorithms
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="linrsp-scaling-study.html">
+   Scaling study: excitation energies with linear response
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="x-ray-cpp.html">
+   Complex polarization propagator in the X-ray region
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Exciton calculation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ntos.html">
+   Natural transition orbitals
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="quick-reference.html">
+   Quick Reference
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="zbibliography.html">
+   Bibliography
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="guide.html">
+   Instructor’s guide
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
+<div class="sbt-scroll-pixel-helper"></div>
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            <div class="topbar-left">
+                
+                <label class="nav-toggle-button" for="__navigation">
+                    <div class="visually-hidden">Toggle navigation</div>
+                    <i class="fas fa-bars"></i>
+                </label>
+                
+            </div>
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/exciton.rst.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ENCCS/veloxchem-hpc"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/ENCCS/veloxchem-hpc/issues/new?title=Issue%20on%20page%20%2Fexciton.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/ENCCS/veloxchem-hpc/edit/main/content/exciton.rst"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#system-oligothiophene-self-assembly">
+   System: oligothiophene self-assembly
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#input-file">
+   Input file
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Exciton calculation</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#system-oligothiophene-self-assembly">
+   System: oligothiophene self-assembly
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#input-file">
+   Input file
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="section" id="exciton-calculation">
+<span id="exciton"></span><h1>Exciton calculation<a class="headerlink" href="#exciton-calculation" title="Permalink to this headline">¶</a></h1>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Learn how to run an <em>ab initio</em> exciton model calculation.</p></li>
+</ul>
+</div>
+<div class="admonition-keypoints keypoints admonition" id="keypoints-0">
+<p class="admonition-title">Keypoints</p>
+<ul class="simple">
+<li><p>Run an <em>ab initio</em> exciton model calculation.</p></li>
+<li><p>Plot the UV-Vis absorption and ECD spectra.</p></li>
+<li><p>Analyze the character of the excitations.</p></li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>In this exercise we will use an <em>ab initio</em> exciton model to compute
+the UV-Vis absorption and electronic ciruclar dichroism (ECD) of
+oligothiophene self-assembly.</p>
+<p>The Frenkel exciton model describes the electronic structure of
+multi-chromophoric system by dividing the system into subgroups.
+It has been most successful in the weak-coupling limit where
+the excitons are localized on inidividual chromophores.
+The <em>ab initio</em> exciton model expands the Frenkel exciton model by
+taking into account charge-transfer between the chromophores, and
+is therefore more useful for studies of singly excited states.
+You may read more in <a class="reference external" href="https://pubs.acs.org/doi/abs/10.1021/acs.jctc.7b00171">this paper</a>
+<span id="id1">[<a class="reference internal" href="zbibliography.html#id6" title="Xin Li, Robert M Parrish, Fang Liu, Sara I L Kokkila Schumacher, and Todd J Martínez. An Ab Initio Exciton Model Including Charge-Transfer Excited States. J. Chem. Theory Comput., 13(8):3493–3504, August 2017. URL: http://dx.doi.org/10.1021/acs.jctc.7b00171, doi:10.1021/acs.jctc.7b00171.">LPL+17</a>]</span>.</p>
+<p>In the exciton model, the Hamiltonian adopts the following matrix form</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{H} =
+\sum_I^N E_I |\phi_I\rangle \langle \phi_I| +
+\sum_{I \ne J}^N V_{IJ} |\phi_I\rangle \langle \phi_J|\]</div>
+<p>where <span class="math notranslate nohighlight">\(N\)</span> is the total number of excited states, <span class="math notranslate nohighlight">\(\phi_I\)</span> is
+the <span class="math notranslate nohighlight">\(I\)</span>-th excitonic basis function, and <span class="math notranslate nohighlight">\(E\)</span> and <span class="math notranslate nohighlight">\(V\)</span> are the
+excitation energies and couplings, respectively.
+Diagonalization of the Hamiltonian gives the eigenvalues and
+eigenvectors for the excited states.</p>
+</div>
+<div class="section" id="system-oligothiophene-self-assembly">
+<h2>System: oligothiophene self-assembly<a class="headerlink" href="#system-oligothiophene-self-assembly" title="Permalink to this headline">¶</a></h2>
+<div style="height: 400px; width: 600px; position: relative;" class='viewer_3Dmoljs' data-href='_static/hexamer.xyz' data-type='xyz' data-backgroundcolor='0xffffff' data-style='stick'></div></div>
+<div class="section" id="input-file">
+<h2>Input file<a class="headerlink" href="#input-file" title="Permalink to this headline">¶</a></h2>
+<p>Below is the input file for <em>ab initio</em> exciton model calculation of oligothiophene
+self-assembly. You can read more about the input keywords in
+<a class="reference external" href="https://docs.veloxchem.org/inputs/keywords.html#the-exciton-group">this page</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@jobs</span>
+<span class="n">task</span><span class="p">:</span> <span class="n">exciton</span>
+<span class="nd">@end</span>
+
+<span class="nd">@method</span> <span class="n">settings</span>
+<span class="n">basis</span><span class="p">:</span> <span class="n">def2</span><span class="o">-</span><span class="n">svp</span>
+<span class="nd">@end</span>
+
+<span class="hll"><span class="nd">@exciton</span>
+</span><span class="hll"><span class="n">fragments</span><span class="p">:</span> <span class="mi">6</span>
+</span><span class="hll"><span class="n">atoms_per_fragment</span><span class="p">:</span> <span class="mi">44</span>
+</span><span class="hll"><span class="n">nstates</span><span class="p">:</span> <span class="mi">5</span>
+</span><span class="hll"><span class="n">ct_nocc</span><span class="p">:</span> <span class="mi">1</span>
+</span><span class="hll"><span class="n">ct_nvir</span><span class="p">:</span> <span class="mi">1</span>
+</span><span class="hll"><span class="nd">@end</span>
+</span>
+<span class="nd">@molecule</span>
+<span class="n">charge</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">multiplicity</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">xyz</span><span class="p">:</span>
+<span class="n">H</span>  <span class="mf">118.845</span> <span class="mf">123.055</span> <span class="mf">249.799</span>
+<span class="n">C</span>  <span class="mf">119.154</span> <span class="mf">123.082</span> <span class="mf">250.844</span>
+<span class="n">S</span>  <span class="mf">118.107</span> <span class="mf">122.412</span> <span class="mf">252.061</span>
+<span class="n">C</span>  <span class="mf">120.464</span> <span class="mf">123.254</span> <span class="mf">251.169</span>
+<span class="n">H</span>  <span class="mf">121.231</span> <span class="mf">123.434</span> <span class="mf">250.415</span>
+<span class="n">C</span>  <span class="mf">120.649</span> <span class="mf">122.832</span> <span class="mf">252.511</span>
+<span class="n">H</span>  <span class="mf">121.507</span> <span class="mf">123.114</span> <span class="mf">253.122</span>
+<span class="n">C</span>  <span class="mf">119.493</span> <span class="mf">122.392</span> <span class="mf">253.145</span>
+<span class="n">C</span>  <span class="mf">119.359</span> <span class="mf">121.952</span> <span class="mf">254.521</span>
+<span class="n">S</span>  <span class="mf">120.401</span> <span class="mf">122.690</span> <span class="mf">255.732</span>
+<span class="n">C</span>  <span class="mf">119.573</span> <span class="mf">121.848</span> <span class="mf">257.038</span>
+<span class="n">C</span>  <span class="mf">118.485</span> <span class="mf">121.141</span> <span class="mf">256.539</span>
+<span class="n">H</span>  <span class="mf">117.654</span> <span class="mf">120.912</span> <span class="mf">257.207</span>
+<span class="n">C</span>  <span class="mf">118.363</span> <span class="mf">121.193</span> <span class="mf">255.126</span>
+<span class="n">H</span>  <span class="mf">117.717</span> <span class="mf">120.537</span> <span class="mf">254.543</span>
+<span class="n">C</span>  <span class="mf">119.943</span> <span class="mf">122.005</span> <span class="mf">258.420</span>
+<span class="n">S</span>  <span class="mf">119.037</span> <span class="mf">121.231</span> <span class="mf">259.716</span>
+<span class="n">C</span>  <span class="mf">120.261</span> <span class="mf">121.681</span> <span class="mf">260.898</span>
+<span class="n">C</span>  <span class="mf">121.217</span> <span class="mf">122.520</span> <span class="mf">260.340</span>
+<span class="n">H</span>  <span class="mf">121.876</span> <span class="mf">123.153</span> <span class="mf">260.934</span>
+<span class="n">C</span>  <span class="mf">121.033</span> <span class="mf">122.684</span> <span class="mf">258.951</span>
+<span class="n">H</span>  <span class="mf">121.792</span> <span class="mf">123.146</span> <span class="mf">258.320</span>
+<span class="n">C</span>  <span class="mf">120.032</span> <span class="mf">121.220</span> <span class="mf">262.243</span>
+<span class="n">S</span>  <span class="mf">121.062</span> <span class="mf">121.625</span> <span class="mf">263.613</span>
+<span class="n">C</span>  <span class="mf">120.146</span> <span class="mf">120.545</span> <span class="mf">264.657</span>
+<span class="n">C</span>  <span class="mf">119.017</span> <span class="mf">120.049</span> <span class="mf">264.015</span>
+<span class="n">H</span>  <span class="mf">118.290</span> <span class="mf">119.390</span> <span class="mf">264.489</span>
+<span class="n">C</span>  <span class="mf">118.964</span> <span class="mf">120.434</span> <span class="mf">262.659</span>
+<span class="n">H</span>  <span class="mf">118.183</span> <span class="mf">120.141</span> <span class="mf">261.956</span>
+<span class="n">C</span>  <span class="mf">120.562</span> <span class="mf">120.194</span> <span class="mf">265.990</span>
+<span class="n">S</span>  <span class="mf">122.227</span> <span class="mf">120.526</span> <span class="mf">266.452</span>
+<span class="n">C</span>  <span class="mf">121.783</span> <span class="mf">120.110</span> <span class="mf">268.103</span>
+<span class="n">C</span>  <span class="mf">120.429</span> <span class="mf">119.815</span> <span class="mf">268.219</span>
+<span class="n">H</span>  <span class="mf">119.881</span> <span class="mf">119.920</span> <span class="mf">269.156</span>
+<span class="n">C</span>  <span class="mf">119.714</span> <span class="mf">119.745</span> <span class="mf">266.996</span>
+<span class="n">H</span>  <span class="mf">118.730</span> <span class="mf">119.308</span> <span class="mf">266.823</span>
+<span class="n">C</span>  <span class="mf">122.808</span> <span class="mf">120.275</span> <span class="mf">269.117</span>
+<span class="n">C</span>  <span class="mf">124.072</span> <span class="mf">120.828</span> <span class="mf">268.951</span>
+<span class="n">H</span>  <span class="mf">124.275</span> <span class="mf">121.519</span> <span class="mf">268.131</span>
+<span class="n">C</span>  <span class="mf">124.684</span> <span class="mf">120.733</span> <span class="mf">270.229</span>
+<span class="n">H</span>  <span class="mf">125.732</span> <span class="mf">120.974</span> <span class="mf">270.407</span>
+<span class="n">C</span>  <span class="mf">123.956</span> <span class="mf">120.278</span> <span class="mf">271.284</span>
+<span class="n">H</span>  <span class="mf">124.088</span> <span class="mf">120.503</span> <span class="mf">272.341</span>
+<span class="n">S</span>  <span class="mf">122.392</span> <span class="mf">119.743</span> <span class="mf">270.742</span>
+<span class="n">H</span>  <span class="mf">127.712</span> <span class="mf">115.074</span> <span class="mf">271.928</span>
+<span class="n">C</span>  <span class="mf">127.450</span> <span class="mf">115.156</span> <span class="mf">270.873</span>
+<span class="n">S</span>  <span class="mf">126.874</span> <span class="mf">116.712</span> <span class="mf">270.349</span>
+<span class="n">C</span>  <span class="mf">127.625</span> <span class="mf">114.299</span> <span class="mf">269.832</span>
+<span class="n">H</span>  <span class="mf">128.033</span> <span class="mf">113.294</span> <span class="mf">269.940</span>
+<span class="n">C</span>  <span class="mf">127.241</span> <span class="mf">114.826</span> <span class="mf">268.570</span>
+<span class="n">H</span>  <span class="mf">127.034</span> <span class="mf">114.302</span> <span class="mf">267.636</span>
+<span class="n">C</span>  <span class="mf">126.843</span> <span class="mf">116.153</span> <span class="mf">268.680</span>
+<span class="n">C</span>  <span class="mf">126.306</span> <span class="mf">116.998</span> <span class="mf">267.630</span>
+<span class="n">S</span>  <span class="mf">126.211</span> <span class="mf">116.315</span> <span class="mf">266.010</span>
+<span class="n">C</span>  <span class="mf">125.817</span> <span class="mf">117.933</span> <span class="mf">265.440</span>
+<span class="n">C</span>  <span class="mf">125.631</span> <span class="mf">118.884</span> <span class="mf">266.436</span>
+<span class="n">H</span>  <span class="mf">125.231</span> <span class="mf">119.888</span> <span class="mf">266.298</span>
+<span class="n">C</span>  <span class="mf">126.042</span> <span class="mf">118.361</span> <span class="mf">267.691</span>
+<span class="n">H</span>  <span class="mf">126.258</span> <span class="mf">118.842</span> <span class="mf">268.646</span>
+<span class="n">C</span>  <span class="mf">125.657</span> <span class="mf">117.928</span> <span class="mf">264.010</span>
+<span class="n">S</span>  <span class="mf">124.725</span> <span class="mf">119.204</span> <span class="mf">263.234</span>
+<span class="n">C</span>  <span class="mf">125.201</span> <span class="mf">118.552</span> <span class="mf">261.671</span>
+<span class="n">C</span>  <span class="mf">125.861</span> <span class="mf">117.331</span> <span class="mf">261.750</span>
+<span class="n">H</span>  <span class="mf">126.375</span> <span class="mf">116.862</span> <span class="mf">260.911</span>
+<span class="n">C</span>  <span class="mf">126.148</span> <span class="mf">117.006</span> <span class="mf">263.091</span>
+<span class="n">H</span>  <span class="mf">126.642</span> <span class="mf">116.077</span> <span class="mf">263.376</span>
+<span class="n">C</span>  <span class="mf">124.928</span> <span class="mf">119.306</span> <span class="mf">260.475</span>
+<span class="n">S</span>  <span class="mf">125.040</span> <span class="mf">118.329</span> <span class="mf">259.016</span>
+<span class="n">C</span>  <span class="mf">124.644</span> <span class="mf">119.732</span> <span class="mf">258.029</span>
+<span class="n">C</span>  <span class="mf">124.581</span> <span class="mf">120.914</span> <span class="mf">258.759</span>
+<span class="n">H</span>  <span class="mf">124.547</span> <span class="mf">121.965</span> <span class="mf">258.470</span>
+<span class="n">C</span>  <span class="mf">124.639</span> <span class="mf">120.623</span> <span class="mf">260.136</span>
+<span class="n">H</span>  <span class="mf">124.625</span> <span class="mf">121.387</span> <span class="mf">260.914</span>
+<span class="n">C</span>  <span class="mf">124.471</span> <span class="mf">119.638</span> <span class="mf">256.604</span>
+<span class="n">S</span>  <span class="mf">124.043</span> <span class="mf">121.158</span> <span class="mf">255.826</span>
+<span class="n">C</span>  <span class="mf">124.219</span> <span class="mf">120.306</span> <span class="mf">254.297</span>
+<span class="n">C</span>  <span class="mf">124.545</span> <span class="mf">118.957</span> <span class="mf">254.375</span>
+<span class="n">H</span>  <span class="mf">124.617</span> <span class="mf">118.339</span> <span class="mf">253.480</span>
+<span class="n">C</span>  <span class="mf">124.668</span> <span class="mf">118.570</span> <span class="mf">255.737</span>
+<span class="n">H</span>  <span class="mf">124.929</span> <span class="mf">117.585</span> <span class="mf">256.122</span>
+<span class="n">C</span>  <span class="mf">124.297</span> <span class="mf">121.089</span> <span class="mf">253.079</span>
+<span class="n">C</span>  <span class="mf">124.393</span> <span class="mf">122.471</span> <span class="mf">252.956</span>
+<span class="n">H</span>  <span class="mf">124.556</span> <span class="mf">123.113</span> <span class="mf">253.820</span>
+<span class="n">C</span>  <span class="mf">124.187</span> <span class="mf">122.838</span> <span class="mf">251.600</span>
+<span class="n">H</span>  <span class="mf">124.615</span> <span class="mf">123.786</span> <span class="mf">251.274</span>
+<span class="n">C</span>  <span class="mf">123.936</span> <span class="mf">121.850</span> <span class="mf">250.699</span>
+<span class="n">H</span>  <span class="mf">123.724</span> <span class="mf">121.925</span> <span class="mf">249.632</span>
+<span class="n">S</span>  <span class="mf">123.940</span> <span class="mf">120.325</span> <span class="mf">251.535</span>
+<span class="n">H</span>  <span class="mf">120.598</span> <span class="mf">119.084</span> <span class="mf">247.493</span>
+<span class="n">C</span>  <span class="mf">120.650</span> <span class="mf">119.035</span> <span class="mf">248.580</span>
+<span class="n">S</span>  <span class="mf">121.311</span> <span class="mf">117.733</span> <span class="mf">249.527</span>
+<span class="n">C</span>  <span class="mf">120.100</span> <span class="mf">120.048</span> <span class="mf">249.303</span>
+<span class="n">H</span>  <span class="mf">119.459</span> <span class="mf">120.796</span> <span class="mf">248.838</span>
+<span class="n">C</span>  <span class="mf">120.233</span> <span class="mf">119.841</span> <span class="mf">250.701</span>
+<span class="n">H</span>  <span class="mf">120.426</span> <span class="mf">120.635</span> <span class="mf">251.423</span>
+<span class="n">C</span>  <span class="mf">120.820</span> <span class="mf">118.611</span> <span class="mf">250.970</span>
+<span class="n">C</span>  <span class="mf">120.988</span> <span class="mf">117.871</span> <span class="mf">252.206</span>
+<span class="n">S</span>  <span class="mf">120.404</span> <span class="mf">118.638</span> <span class="mf">253.679</span>
+<span class="n">C</span>  <span class="mf">120.949</span> <span class="mf">117.227</span> <span class="mf">254.579</span>
+<span class="n">C</span>  <span class="mf">121.449</span> <span class="mf">116.225</span> <span class="mf">253.755</span>
+<span class="n">H</span>  <span class="mf">121.839</span> <span class="mf">115.296</span> <span class="mf">254.171</span>
+<span class="n">C</span>  <span class="mf">121.572</span> <span class="mf">116.624</span> <span class="mf">252.397</span>
+<span class="n">H</span>  <span class="mf">122.334</span> <span class="mf">116.298</span> <span class="mf">251.689</span>
+<span class="n">C</span>  <span class="mf">121.053</span> <span class="mf">117.352</span> <span class="mf">256.010</span>
+<span class="n">S</span>  <span class="mf">121.716</span> <span class="mf">115.971</span> <span class="mf">256.877</span>
+<span class="n">C</span>  <span class="mf">121.511</span> <span class="mf">116.916</span> <span class="mf">258.347</span>
+<span class="n">C</span>  <span class="mf">121.086</span> <span class="mf">118.226</span> <span class="mf">258.158</span>
+<span class="n">H</span>  <span class="mf">121.144</span> <span class="mf">119.011</span> <span class="mf">258.913</span>
+<span class="n">C</span>  <span class="mf">120.794</span> <span class="mf">118.465</span> <span class="mf">256.799</span>
+<span class="n">H</span>  <span class="mf">120.189</span> <span class="mf">119.282</span> <span class="mf">256.405</span>
+<span class="n">C</span>  <span class="mf">121.841</span> <span class="mf">116.263</span> <span class="mf">259.587</span>
+<span class="n">S</span>  <span class="mf">121.780</span> <span class="mf">117.373</span> <span class="mf">260.952</span>
+<span class="n">C</span>  <span class="mf">122.192</span> <span class="mf">115.991</span> <span class="mf">261.960</span>
+<span class="n">C</span>  <span class="mf">122.305</span> <span class="mf">114.754</span> <span class="mf">261.335</span>
+<span class="n">H</span>  <span class="mf">122.461</span> <span class="mf">113.786</span> <span class="mf">261.812</span>
+<span class="n">C</span>  <span class="mf">122.137</span> <span class="mf">114.954</span> <span class="mf">259.951</span>
+<span class="n">H</span>  <span class="mf">121.802</span> <span class="mf">114.109</span> <span class="mf">259.348</span>
+<span class="n">C</span>  <span class="mf">122.108</span> <span class="mf">116.376</span> <span class="mf">263.345</span>
+<span class="n">S</span>  <span class="mf">122.610</span> <span class="mf">115.155</span> <span class="mf">264.510</span>
+<span class="n">C</span>  <span class="mf">122.300</span> <span class="mf">116.216</span> <span class="mf">265.880</span>
+<span class="n">C</span>  <span class="mf">121.780</span> <span class="mf">117.410</span> <span class="mf">265.392</span>
+<span class="n">H</span>  <span class="mf">121.596</span> <span class="mf">118.211</span> <span class="mf">266.109</span>
+<span class="n">C</span>  <span class="mf">121.738</span> <span class="mf">117.555</span> <span class="mf">263.980</span>
+<span class="n">H</span>  <span class="mf">121.204</span> <span class="mf">118.385</span> <span class="mf">263.517</span>
+<span class="n">C</span>  <span class="mf">122.620</span> <span class="mf">115.679</span> <span class="mf">267.188</span>
+<span class="n">C</span>  <span class="mf">122.318</span> <span class="mf">116.134</span> <span class="mf">268.466</span>
+<span class="n">H</span>  <span class="mf">122.042</span> <span class="mf">117.177</span> <span class="mf">268.616</span>
+<span class="n">C</span>  <span class="mf">122.783</span> <span class="mf">115.291</span> <span class="mf">269.510</span>
+<span class="n">H</span>  <span class="mf">122.233</span> <span class="mf">115.292</span> <span class="mf">270.452</span>
+<span class="n">C</span>  <span class="mf">123.520</span> <span class="mf">114.267</span> <span class="mf">269.003</span>
+<span class="n">H</span>  <span class="mf">124.328</span> <span class="mf">113.733</span> <span class="mf">269.503</span>
+<span class="n">S</span>  <span class="mf">123.414</span> <span class="mf">114.110</span> <span class="mf">267.273</span>
+<span class="n">H</span>  <span class="mf">123.715</span> <span class="mf">111.237</span> <span class="mf">269.393</span>
+<span class="n">C</span>  <span class="mf">124.457</span> <span class="mf">111.278</span> <span class="mf">270.190</span>
+<span class="n">S</span>  <span class="mf">124.085</span> <span class="mf">112.034</span> <span class="mf">271.712</span>
+<span class="n">C</span>  <span class="mf">125.747</span> <span class="mf">110.854</span> <span class="mf">270.106</span>
+<span class="n">H</span>  <span class="mf">126.191</span> <span class="mf">110.451</span> <span class="mf">269.195</span>
+<span class="n">C</span>  <span class="mf">126.526</span> <span class="mf">111.307</span> <span class="mf">271.203</span>
+<span class="n">H</span>  <span class="mf">127.480</span> <span class="mf">110.862</span> <span class="mf">271.485</span>
+<span class="n">C</span>  <span class="mf">125.771</span> <span class="mf">111.910</span> <span class="mf">272.202</span>
+<span class="n">C</span>  <span class="mf">125.969</span> <span class="mf">111.962</span> <span class="mf">273.638</span>
+<span class="n">S</span>  <span class="mf">124.560</span> <span class="mf">111.311</span> <span class="mf">274.467</span>
+<span class="n">C</span>  <span class="mf">125.406</span> <span class="mf">111.462</span> <span class="mf">276.003</span>
+<span class="n">C</span>  <span class="mf">126.648</span> <span class="mf">112.058</span> <span class="mf">275.820</span>
+<span class="n">H</span>  <span class="mf">127.317</span> <span class="mf">112.265</span> <span class="mf">276.655</span>
+<span class="n">C</span>  <span class="mf">126.996</span> <span class="mf">112.372</span> <span class="mf">274.478</span>
+<span class="n">H</span>  <span class="mf">127.731</span> <span class="mf">113.094</span> <span class="mf">274.122</span>
+<span class="n">C</span>  <span class="mf">124.954</span> <span class="mf">110.914</span> <span class="mf">277.256</span>
+<span class="n">S</span>  <span class="mf">126.130</span> <span class="mf">110.951</span> <span class="mf">278.564</span>
+<span class="n">C</span>  <span class="mf">125.036</span> <span class="mf">110.098</span> <span class="mf">279.648</span>
+<span class="n">C</span>  <span class="mf">123.896</span> <span class="mf">109.713</span> <span class="mf">278.951</span>
+<span class="n">H</span>  <span class="mf">123.096</span> <span class="mf">109.114</span> <span class="mf">279.384</span>
+<span class="n">C</span>  <span class="mf">123.792</span> <span class="mf">110.265</span> <span class="mf">277.657</span>
+<span class="n">H</span>  <span class="mf">122.880</span> <span class="mf">110.482</span> <span class="mf">277.102</span>
+<span class="n">C</span>  <span class="mf">125.495</span> <span class="mf">109.942</span> <span class="mf">281.003</span>
+<span class="n">S</span>  <span class="mf">124.372</span> <span class="mf">109.324</span> <span class="mf">282.209</span>
+<span class="n">C</span>  <span class="mf">125.671</span> <span class="mf">109.250</span> <span class="mf">283.394</span>
+<span class="n">C</span>  <span class="mf">126.839</span> <span class="mf">109.817</span> <span class="mf">282.897</span>
+<span class="n">H</span>  <span class="mf">127.660</span> <span class="mf">110.113</span> <span class="mf">283.550</span>
+<span class="n">C</span>  <span class="mf">126.757</span> <span class="mf">110.177</span> <span class="mf">281.536</span>
+<span class="n">H</span>  <span class="mf">127.636</span> <span class="mf">110.214</span> <span class="mf">280.894</span>
+<span class="n">C</span>  <span class="mf">125.459</span> <span class="mf">108.595</span> <span class="mf">284.659</span>
+<span class="n">S</span>  <span class="mf">126.744</span> <span class="mf">108.564</span> <span class="mf">285.862</span>
+<span class="n">C</span>  <span class="mf">125.607</span> <span class="mf">107.875</span> <span class="mf">287.016</span>
+<span class="n">C</span>  <span class="mf">124.316</span> <span class="mf">107.851</span> <span class="mf">286.500</span>
+<span class="n">H</span>  <span class="mf">123.509</span> <span class="mf">107.665</span> <span class="mf">287.209</span>
+<span class="n">C</span>  <span class="mf">124.210</span> <span class="mf">108.208</span> <span class="mf">285.130</span>
+<span class="n">H</span>  <span class="mf">123.286</span> <span class="mf">108.008</span> <span class="mf">284.587</span>
+<span class="n">C</span>  <span class="mf">126.084</span> <span class="mf">107.722</span> <span class="mf">288.375</span>
+<span class="n">C</span>  <span class="mf">125.238</span> <span class="mf">107.836</span> <span class="mf">289.471</span>
+<span class="n">H</span>  <span class="mf">124.243</span> <span class="mf">108.274</span> <span class="mf">289.388</span>
+<span class="n">C</span>  <span class="mf">125.969</span> <span class="mf">107.523</span> <span class="mf">290.648</span>
+<span class="n">H</span>  <span class="mf">125.437</span> <span class="mf">107.247</span> <span class="mf">291.559</span>
+<span class="n">C</span>  <span class="mf">127.314</span> <span class="mf">107.395</span> <span class="mf">290.491</span>
+<span class="n">H</span>  <span class="mf">128.026</span> <span class="mf">107.536</span> <span class="mf">291.303</span>
+<span class="n">S</span>  <span class="mf">127.761</span> <span class="mf">107.411</span> <span class="mf">288.810</span>
+<span class="n">H</span>  <span class="mf">130.198</span> <span class="mf">109.180</span> <span class="mf">271.826</span>
+<span class="n">C</span>  <span class="mf">129.217</span> <span class="mf">109.162</span> <span class="mf">272.300</span>
+<span class="n">S</span>  <span class="mf">129.140</span> <span class="mf">109.513</span> <span class="mf">274.004</span>
+<span class="n">C</span>  <span class="mf">128.144</span> <span class="mf">108.541</span> <span class="mf">271.740</span>
+<span class="n">H</span>  <span class="mf">128.159</span> <span class="mf">108.125</span> <span class="mf">270.733</span>
+<span class="n">C</span>  <span class="mf">127.108</span> <span class="mf">108.369</span> <span class="mf">272.697</span>
+<span class="n">H</span>  <span class="mf">126.232</span> <span class="mf">107.721</span> <span class="mf">272.719</span>
+<span class="n">C</span>  <span class="mf">127.545</span> <span class="mf">108.771</span> <span class="mf">273.953</span>
+<span class="n">C</span>  <span class="mf">126.975</span> <span class="mf">108.328</span> <span class="mf">275.212</span>
+<span class="n">S</span>  <span class="mf">128.053</span> <span class="mf">108.280</span> <span class="mf">276.603</span>
+<span class="n">C</span>  <span class="mf">126.764</span> <span class="mf">107.608</span> <span class="mf">277.594</span>
+<span class="n">C</span>  <span class="mf">125.582</span> <span class="mf">107.430</span> <span class="mf">276.884</span>
+<span class="n">H</span>  <span class="mf">124.657</span> <span class="mf">107.259</span> <span class="mf">277.432</span>
+<span class="n">C</span>  <span class="mf">125.713</span> <span class="mf">107.843</span> <span class="mf">275.530</span>
+<span class="n">H</span>  <span class="mf">124.855</span> <span class="mf">107.990</span> <span class="mf">274.875</span>
+<span class="n">C</span>  <span class="mf">127.061</span> <span class="mf">107.075</span> <span class="mf">278.897</span>
+<span class="n">S</span>  <span class="mf">125.784</span> <span class="mf">106.086</span> <span class="mf">279.598</span>
+<span class="n">C</span>  <span class="mf">126.623</span> <span class="mf">106.147</span> <span class="mf">281.143</span>
+<span class="n">C</span>  <span class="mf">127.831</span> <span class="mf">106.834</span> <span class="mf">281.122</span>
+<span class="n">H</span>  <span class="mf">128.483</span> <span class="mf">106.723</span> <span class="mf">281.990</span>
+<span class="n">C</span>  <span class="mf">128.057</span> <span class="mf">107.346</span> <span class="mf">279.828</span>
+<span class="n">H</span>  <span class="mf">128.943</span> <span class="mf">107.950</span> <span class="mf">279.630</span>
+<span class="n">C</span>  <span class="mf">125.801</span> <span class="mf">105.626</span> <span class="mf">282.204</span>
+<span class="n">S</span>  <span class="mf">126.672</span> <span class="mf">105.044</span> <span class="mf">283.618</span>
+<span class="n">C</span>  <span class="mf">125.146</span> <span class="mf">104.844</span> <span class="mf">284.473</span>
+<span class="n">C</span>  <span class="mf">124.072</span> <span class="mf">105.238</span> <span class="mf">283.682</span>
+<span class="n">H</span>  <span class="mf">123.013</span> <span class="mf">105.097</span> <span class="mf">283.898</span>
+<span class="n">C</span>  <span class="mf">124.427</span> <span class="mf">105.708</span> <span class="mf">282.400</span>
+<span class="n">H</span>  <span class="mf">123.823</span> <span class="mf">106.415</span> <span class="mf">281.831</span>
+<span class="n">C</span>  <span class="mf">125.149</span> <span class="mf">104.527</span> <span class="mf">285.876</span>
+<span class="n">S</span>  <span class="mf">126.701</span> <span class="mf">104.475</span> <span class="mf">286.704</span>
+<span class="n">C</span>  <span class="mf">125.978</span> <span class="mf">103.898</span> <span class="mf">288.202</span>
+<span class="n">C</span>  <span class="mf">124.614</span> <span class="mf">103.712</span> <span class="mf">288.008</span>
+<span class="n">H</span>  <span class="mf">124.113</span> <span class="mf">103.273</span> <span class="mf">288.871</span>
+<span class="n">C</span>  <span class="mf">124.136</span> <span class="mf">104.099</span> <span class="mf">286.728</span>
+<span class="n">H</span>  <span class="mf">123.154</span> <span class="mf">103.876</span> <span class="mf">286.311</span>
+<span class="n">C</span>  <span class="mf">126.764</span> <span class="mf">103.708</span> <span class="mf">289.405</span>
+<span class="n">C</span>  <span class="mf">128.118</span> <span class="mf">103.413</span> <span class="mf">289.508</span>
+<span class="n">H</span>  <span class="mf">128.838</span> <span class="mf">103.622</span> <span class="mf">288.715</span>
+<span class="n">C</span>  <span class="mf">128.506</span> <span class="mf">103.238</span> <span class="mf">290.861</span>
+<span class="n">H</span>  <span class="mf">129.414</span> <span class="mf">102.666</span> <span class="mf">291.052</span>
+<span class="n">C</span>  <span class="mf">127.473</span> <span class="mf">103.398</span> <span class="mf">291.732</span>
+<span class="n">H</span>  <span class="mf">127.503</span> <span class="mf">103.239</span> <span class="mf">292.810</span>
+<span class="n">S</span>  <span class="mf">125.973</span> <span class="mf">103.845</span> <span class="mf">290.971</span>
+<span class="n">H</span>  <span class="mf">125.720</span> <span class="mf">113.779</span> <span class="mf">294.384</span>
+<span class="n">C</span>  <span class="mf">125.769</span> <span class="mf">113.277</span> <span class="mf">293.417</span>
+<span class="n">S</span>  <span class="mf">125.804</span> <span class="mf">114.175</span> <span class="mf">291.927</span>
+<span class="n">C</span>  <span class="mf">125.809</span> <span class="mf">111.927</span> <span class="mf">293.260</span>
+<span class="n">H</span>  <span class="mf">125.468</span> <span class="mf">111.219</span> <span class="mf">294.016</span>
+<span class="n">C</span>  <span class="mf">126.044</span> <span class="mf">111.550</span> <span class="mf">291.911</span>
+<span class="n">H</span>  <span class="mf">126.073</span> <span class="mf">110.534</span> <span class="mf">291.516</span>
+<span class="n">C</span>  <span class="mf">125.887</span> <span class="mf">112.642</span> <span class="mf">291.066</span>
+<span class="n">C</span>  <span class="mf">125.684</span> <span class="mf">112.552</span> <span class="mf">289.634</span>
+<span class="n">S</span>  <span class="mf">125.054</span> <span class="mf">113.952</span> <span class="mf">288.771</span>
+<span class="n">C</span>  <span class="mf">125.384</span> <span class="mf">113.099</span> <span class="mf">287.267</span>
+<span class="n">C</span>  <span class="mf">125.819</span> <span class="mf">111.790</span> <span class="mf">287.439</span>
+<span class="n">H</span>  <span class="mf">125.876</span> <span class="mf">111.141</span> <span class="mf">286.565</span>
+<span class="n">C</span>  <span class="mf">126.059</span> <span class="mf">111.500</span> <span class="mf">288.807</span>
+<span class="n">H</span>  <span class="mf">125.901</span> <span class="mf">110.482</span> <span class="mf">289.164</span>
+<span class="n">C</span>  <span class="mf">125.132</span> <span class="mf">113.746</span> <span class="mf">286.005</span>
+<span class="n">S</span>  <span class="mf">125.089</span> <span class="mf">112.763</span> <span class="mf">284.546</span>
+<span class="n">C</span>  <span class="mf">124.836</span> <span class="mf">114.255</span> <span class="mf">283.647</span>
+<span class="n">C</span>  <span class="mf">124.737</span> <span class="mf">115.408</span> <span class="mf">284.417</span>
+<span class="n">H</span>  <span class="mf">124.336</span> <span class="mf">116.357</span> <span class="mf">284.060</span>
+<span class="n">C</span>  <span class="mf">124.963</span> <span class="mf">115.107</span> <span class="mf">285.775</span>
+<span class="n">H</span>  <span class="mf">124.700</span> <span class="mf">115.770</span> <span class="mf">286.599</span>
+<span class="n">C</span>  <span class="mf">124.742</span> <span class="mf">114.244</span> <span class="mf">282.211</span>
+<span class="n">S</span>  <span class="mf">124.147</span> <span class="mf">115.699</span> <span class="mf">281.418</span>
+<span class="n">C</span>  <span class="mf">123.936</span> <span class="mf">114.740</span> <span class="mf">279.958</span>
+<span class="n">C</span>  <span class="mf">124.258</span> <span class="mf">113.395</span> <span class="mf">280.089</span>
+<span class="n">H</span>  <span class="mf">124.388</span> <span class="mf">112.705</span> <span class="mf">279.255</span>
+<span class="n">C</span>  <span class="mf">124.750</span> <span class="mf">113.127</span> <span class="mf">281.383</span>
+<span class="n">H</span>  <span class="mf">125.099</span> <span class="mf">112.164</span> <span class="mf">281.755</span>
+<span class="n">C</span>  <span class="mf">123.562</span> <span class="mf">115.408</span> <span class="mf">278.738</span>
+<span class="n">S</span>  <span class="mf">123.972</span> <span class="mf">114.549</span> <span class="mf">277.258</span>
+<span class="n">C</span>  <span class="mf">123.534</span> <span class="mf">115.992</span> <span class="mf">276.352</span>
+<span class="n">C</span>  <span class="mf">123.063</span> <span class="mf">117.045</span> <span class="mf">277.128</span>
+<span class="n">H</span>  <span class="mf">122.306</span> <span class="mf">117.664</span> <span class="mf">276.646</span>
+<span class="n">C</span>  <span class="mf">123.163</span> <span class="mf">116.719</span> <span class="mf">278.505</span>
+<span class="n">H</span>  <span class="mf">122.708</span> <span class="mf">117.376</span> <span class="mf">279.246</span>
+<span class="n">C</span>  <span class="mf">123.770</span> <span class="mf">116.102</span> <span class="mf">274.924</span>
+<span class="n">C</span>  <span class="mf">124.202</span> <span class="mf">115.075</span> <span class="mf">274.094</span>
+<span class="n">H</span>  <span class="mf">124.663</span> <span class="mf">114.134</span> <span class="mf">274.391</span>
+<span class="n">C</span>  <span class="mf">124.118</span> <span class="mf">115.418</span> <span class="mf">272.719</span>
+<span class="n">H</span>  <span class="mf">124.230</span> <span class="mf">114.710</span> <span class="mf">271.898</span>
+<span class="n">C</span>  <span class="mf">123.663</span> <span class="mf">116.687</span> <span class="mf">272.534</span>
+<span class="n">H</span>  <span class="mf">123.516</span> <span class="mf">117.249</span> <span class="mf">271.610</span>
+<span class="n">S</span>  <span class="mf">123.359</span> <span class="mf">117.550</span> <span class="mf">274.013</span>
+<span class="nd">@end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Submit a job</p>
+<blockquote>
+<div><p>Runs the above example.
+On Dardel this calculation takes around 10 minutes on
+2 nodes. You can choose to run on more nodes.</p>
+</div></blockquote>
+</li>
+<li><p>Plot the spectrum</p>
+<blockquote>
+<div><p>The excitation energies, oscillator strengths, and rotatory strengths will be
+printed at the end of the output file.
+You can plot the UV-Vis and ECD spectra by line broadening using e.g.
+<a class="reference external" href="https://en.wikipedia.org/wiki/Gaussian_function">Gaussian function</a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+
+<span class="k">def</span> <span class="nf">gaussian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">xstep</span><span class="p">,</span> <span class="n">sigma</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gaussian broadening function</span>
+
+<span class="sd">    Call: xi,yi = gaussian(energies, intensities, start energy, end energy, energy step, gamma)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">xstep</span><span class="p">)</span>
+    <span class="n">yi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">_x</span><span class="p">,</span> <span class="n">_y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="n">yi</span> <span class="o">+=</span> <span class="n">_y</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span> <span class="o">-</span><span class="p">(</span><span class="n">xi</span> <span class="o">-</span> <span class="n">_x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">xi</span><span class="p">,</span> <span class="n">yi</span>
+
+<span class="c1"># insert your data!</span>
+<span class="n">exc_ene</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.8</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">3.1</span><span class="p">,</span> <span class="mf">3.15</span><span class="p">])</span>
+
+<span class="c1"># insert your data!</span>
+<span class="n">osc_str</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
+
+<span class="n">x0</span><span class="p">,</span> <span class="n">y0</span> <span class="o">=</span> <span class="n">gaussian</span><span class="p">(</span><span class="n">exc_ene</span><span class="p">,</span> <span class="n">osc_str</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
+    <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">x0</span><span class="p">,</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">y0</span><span class="p">,</span>
+        <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;absorption&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Absorption&quot;</span><span class="p">,</span>
+    <span class="n">xaxis_title</span><span class="o">=</span><span class="s2">&quot;Excitation energy&quot;</span><span class="p">,</span>
+    <span class="n">yaxis_title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Examine the character of the excitations</p>
+<blockquote>
+<div><p>The character of the excitations will be printed at the end of the output
+file. Find out the characters of the important excitations.</p>
+<p>Notation:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">LE</span> <span class="pre">5e(3)</span></code> stands for the 3rd locally excited state (S3) on monomer 5.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CT</span> <span class="pre">3+(H0)4-(L0)</span></code> stands for charge transfer from HOMO of monomer
+3 to LUMO of monomer 4.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="x-ray-cpp.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Complex polarization propagator in the X-ray region</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="ntos.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Natural transition orbitals</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By The contributors<br/>
+    
+        &copy; Copyright 2022, The contributors.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

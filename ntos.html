@@ -1,0 +1,601 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Natural transition orbitals</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx_lesson.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/overrides.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/minipres.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://3Dmol.org/build/3Dmol-min.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Quick Reference" href="quick-reference.html" />
+    <link rel="prev" title="Exciton calculation" href="exciton.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/ENCCS-PDC-logos.jpg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   VeloxChem: quantum chemistry towards pre-exascale and beyond
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="setup.html">
+   Setting up your system
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hpc-setup.html">
+   Setting up VeloxChem on a HPC cluster
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  The lesson
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks/first-steps.html">
+   First steps with VeloxChem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="modern-hpc-architectures.html">
+   Modern HPC architectures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="performance-theory.html">
+   Performance theory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scf-scaling-study.html">
+   Scaling study: self-consistent field calculations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="eri-overview.html">
+   An overview of electron-repulsion integral evaluation algorithms
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="linrsp-scaling-study.html">
+   Scaling study: excitation energies with linear response
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="x-ray-cpp.html">
+   Complex polarization propagator in the X-ray region
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exciton.html">
+   Exciton calculation
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Natural transition orbitals
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="quick-reference.html">
+   Quick Reference
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="zbibliography.html">
+   Bibliography
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="guide.html">
+   Instructor’s guide
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
+<div class="sbt-scroll-pixel-helper"></div>
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            <div class="topbar-left">
+                
+                <label class="nav-toggle-button" for="__navigation">
+                    <div class="visually-hidden">Toggle navigation</div>
+                    <i class="fas fa-bars"></i>
+                </label>
+                
+            </div>
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/ntos.rst.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ENCCS/veloxchem-hpc"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/ENCCS/veloxchem-hpc/issues/new?title=Issue%20on%20page%20%2Fntos.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/ENCCS/veloxchem-hpc/edit/main/content/ntos.rst"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#system-bpvb">
+   System: BPVB
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#input-file">
+   Input file
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Natural transition orbitals</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#system-bpvb">
+   System: BPVB
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#input-file">
+   Input file
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="section" id="natural-transition-orbitals">
+<span id="ntos"></span><h1>Natural transition orbitals<a class="headerlink" href="#natural-transition-orbitals" title="Permalink to this headline">¶</a></h1>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Learn how to generate cube files for natural transition orbitals (NTOs).</p></li>
+</ul>
+</div>
+<div class="admonition-keypoints keypoints admonition" id="keypoints-0">
+<p class="admonition-title">Keypoints</p>
+<ul class="simple">
+<li><p>Generate cube files for NTOs.</p></li>
+<li><p>Compare the number of NTOs with the number of important excitations.</p></li>
+<li><p>Visualize selected cube files for NTOs.</p></li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>In this exercise we will generate NTO cube files for visualizing
+exitations.
+NTOs are given by singular value decomposition (SVD) of single particle
+transition density matrix <strong>T</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{equation}
+  U S V^{\dagger} = T
+\end{equation}\]</div>
+<p>where <strong>S</strong> is diagonal matrix and <strong>U</strong> and <strong>V</strong> are unitary transformation
+matrices. Transformation of orbital sets by <strong>U</strong> and <strong>V</strong> makes it more
+straightforward to interpret the excitations. The square of the diagonal
+elements of <strong>S</strong> reflect the importance of the associated particle-hole
+excitations.
+You can read more about NTOs in <a class="reference external" href="https://aip.scitation.org/doi/abs/10.1063/1.1558471">this paper</a> <span id="id1">[<a class="reference internal" href="zbibliography.html#id7" title="Richard L. Martin. Natural transition orbitals. J. Chem. Phys., 118(11):4775–4777, 2003. URL: https://doi.org/10.1063/1.1558471, arXiv:https://doi.org/10.1063/1.1558471, doi:10.1063/1.1558471.">Mar03</a>]</span>.</p>
+</div>
+<div class="section" id="system-bpvb">
+<h2>System: BPVB<a class="headerlink" href="#system-bpvb" title="Permalink to this headline">¶</a></h2>
+<div style="height: 400px; width: 600px; position: relative;" class='viewer_3Dmoljs' data-href='_static/bpvb.xyz' data-type='xyz' data-backgroundcolor='0xffffff' data-style='stick'></div></div>
+<div class="section" id="input-file">
+<h2>Input file<a class="headerlink" href="#input-file" title="Permalink to this headline">¶</a></h2>
+<p>Below is the input file for generating NTO cube files.
+You can read more about the input keywords in
+<a class="reference external" href="https://veloxchem.org/docs/keywords.html">this page</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@jobs</span>
+<span class="n">task</span><span class="p">:</span> <span class="n">response</span>
+<span class="nd">@end</span>
+
+<span class="nd">@method</span> <span class="n">settings</span>
+<span class="n">basis</span><span class="p">:</span> <span class="n">def2</span><span class="o">-</span><span class="n">sv</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="nd">@end</span>
+
+<span class="hll"><span class="nd">@response</span>
+</span><span class="hll"><span class="nb">property</span><span class="p">:</span> <span class="n">absorption</span>
+</span><span class="hll"><span class="n">nstates</span><span class="p">:</span> <span class="mi">5</span>
+</span><span class="hll"><span class="n">nto</span><span class="p">:</span> <span class="n">yes</span>
+</span><span class="hll"><span class="nd">@end</span>
+</span>
+<span class="nd">@molecule</span>
+<span class="n">charge</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">multiplicity</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">xyz</span><span class="p">:</span>
+<span class="n">C</span>         <span class="o">-</span><span class="mf">0.84284</span>       <span class="o">-</span><span class="mf">1.02840</span>        <span class="mf">0.00963</span>
+<span class="n">C</span>         <span class="o">-</span><span class="mf">1.45123</span>        <span class="mf">0.22734</span>        <span class="mf">0.13199</span>
+<span class="n">C</span>         <span class="o">-</span><span class="mf">0.56813</span>        <span class="mf">1.31753</span>        <span class="mf">0.20330</span>
+<span class="n">C</span>          <span class="mf">0.79861</span>        <span class="mf">1.16984</span>        <span class="mf">0.14857</span>
+<span class="n">C</span>          <span class="mf">1.40475</span>       <span class="o">-</span><span class="mf">0.08580</span>        <span class="mf">0.02124</span>
+<span class="n">C</span>          <span class="mf">0.52270</span>       <span class="o">-</span><span class="mf">1.17632</span>       <span class="o">-</span><span class="mf">0.04573</span>
+<span class="n">C</span>          <span class="mf">2.83288</span>       <span class="o">-</span><span class="mf">0.25642</span>       <span class="o">-</span><span class="mf">0.05712</span>
+<span class="n">C</span>          <span class="mf">3.76548</span>        <span class="mf">0.67937</span>        <span class="mf">0.19550</span>
+<span class="n">C</span>          <span class="mf">5.19289</span>        <span class="mf">0.48407</span>        <span class="mf">0.10731</span>
+<span class="n">C</span>          <span class="mf">5.77992</span>       <span class="o">-</span><span class="mf">0.66818</span>       <span class="o">-</span><span class="mf">0.43060</span>
+<span class="n">C</span>          <span class="mf">7.14548</span>       <span class="o">-</span><span class="mf">0.81294</span>       <span class="o">-</span><span class="mf">0.48567</span>
+<span class="n">C</span>          <span class="mf">7.99149</span>        <span class="mf">0.18848</span>        <span class="mf">0.00120</span>
+<span class="n">C</span>          <span class="mf">7.41766</span>        <span class="mf">1.34742</span>        <span class="mf">0.53085</span>
+<span class="n">C</span>          <span class="mf">6.04993</span>        <span class="mf">1.48831</span>        <span class="mf">0.57516</span>
+<span class="n">N</span>          <span class="mf">9.37377</span>        <span class="mf">0.02902</span>       <span class="o">-</span><span class="mf">0.04283</span>
+<span class="n">C</span>          <span class="mf">9.93244</span>       <span class="o">-</span><span class="mf">1.24442</span>        <span class="mf">0.11269</span>
+<span class="n">C</span>         <span class="mf">10.20821</span>        <span class="mf">1.12848</span>       <span class="o">-</span><span class="mf">0.26234</span>
+<span class="n">C</span>         <span class="o">-</span><span class="mf">2.88190</span>        <span class="mf">0.39460</span>        <span class="mf">0.16902</span>
+<span class="n">C</span>         <span class="o">-</span><span class="mf">3.79623</span>       <span class="o">-</span><span class="mf">0.58764</span>        <span class="mf">0.07004</span>
+<span class="n">C</span>         <span class="o">-</span><span class="mf">5.22951</span>       <span class="o">-</span><span class="mf">0.42765</span>        <span class="mf">0.07697</span>
+<span class="n">C</span>         <span class="o">-</span><span class="mf">5.87775</span>        <span class="mf">0.80936</span>        <span class="mf">0.18224</span>
+<span class="n">C</span>         <span class="o">-</span><span class="mf">7.24988</span>        <span class="mf">0.89923</span>        <span class="mf">0.15782</span>
+<span class="n">C</span>         <span class="o">-</span><span class="mf">8.03929</span>       <span class="o">-</span><span class="mf">0.24763</span>        <span class="mf">0.02735</span>
+<span class="n">C</span>         <span class="o">-</span><span class="mf">7.40348</span>       <span class="o">-</span><span class="mf">1.48895</span>       <span class="o">-</span><span class="mf">0.06584</span>
+<span class="n">C</span>         <span class="o">-</span><span class="mf">6.03165</span>       <span class="o">-</span><span class="mf">1.57039</span>       <span class="o">-</span><span class="mf">0.04241</span>
+<span class="n">C</span>         <span class="mf">11.44362</span>        <span class="mf">1.22068</span>        <span class="mf">0.38117</span>
+<span class="n">C</span>         <span class="mf">12.26503</span>        <span class="mf">2.30099</span>        <span class="mf">0.15564</span>
+<span class="n">C</span>         <span class="mf">11.89576</span>        <span class="mf">3.33640</span>       <span class="o">-</span><span class="mf">0.71341</span>
+<span class="n">C</span>         <span class="mf">10.65419</span>        <span class="mf">3.22959</span>       <span class="o">-</span><span class="mf">1.35281</span>
+<span class="n">C</span>          <span class="mf">9.82892</span>        <span class="mf">2.15058</span>       <span class="o">-</span><span class="mf">1.13546</span>
+<span class="n">C</span>         <span class="mf">11.04148</span>       <span class="o">-</span><span class="mf">1.63387</span>       <span class="o">-</span><span class="mf">0.63985</span>
+<span class="n">C</span>         <span class="mf">11.57259</span>       <span class="o">-</span><span class="mf">2.89457</span>       <span class="o">-</span><span class="mf">0.49144</span>
+<span class="n">C</span>         <span class="mf">11.02315</span>       <span class="o">-</span><span class="mf">3.82332</span>        <span class="mf">0.40271</span>
+<span class="n">C</span>          <span class="mf">9.92056</span>       <span class="o">-</span><span class="mf">3.41216</span>        <span class="mf">1.16287</span>
+<span class="n">C</span>          <span class="mf">9.38808</span>       <span class="o">-</span><span class="mf">2.15161</span>        <span class="mf">1.02454</span>
+<span class="n">N</span>         <span class="o">-</span><span class="mf">9.42733</span>       <span class="o">-</span><span class="mf">0.15899</span>       <span class="o">-</span><span class="mf">0.01657</span>
+<span class="n">C</span>        <span class="o">-</span><span class="mf">10.10310</span>        <span class="mf">0.81339</span>        <span class="mf">0.72665</span>
+<span class="n">C</span>        <span class="o">-</span><span class="mf">10.15980</span>       <span class="o">-</span><span class="mf">1.05823</span>       <span class="o">-</span><span class="mf">0.79941</span>
+<span class="n">C</span>        <span class="o">-</span><span class="mf">11.37880</span>       <span class="o">-</span><span class="mf">1.56595</span>       <span class="o">-</span><span class="mf">0.34756</span>
+<span class="n">C</span>        <span class="o">-</span><span class="mf">12.08835</span>       <span class="o">-</span><span class="mf">2.45679</span>       <span class="o">-</span><span class="mf">1.11970</span>
+<span class="n">C</span>        <span class="o">-</span><span class="mf">11.61809</span>       <span class="o">-</span><span class="mf">2.88420</span>       <span class="o">-</span><span class="mf">2.36853</span>
+<span class="n">C</span>        <span class="o">-</span><span class="mf">10.39907</span>       <span class="o">-</span><span class="mf">2.35720</span>       <span class="o">-</span><span class="mf">2.81366</span>
+<span class="n">C</span>         <span class="o">-</span><span class="mf">9.68587</span>       <span class="o">-</span><span class="mf">1.46321</span>       <span class="o">-</span><span class="mf">2.04912</span>
+<span class="n">C</span>        <span class="o">-</span><span class="mf">11.24256</span>        <span class="mf">1.43256</span>        <span class="mf">0.21001</span>
+<span class="n">C</span>        <span class="o">-</span><span class="mf">11.91737</span>        <span class="mf">2.37442</span>        <span class="mf">0.95148</span>
+<span class="n">C</span>        <span class="o">-</span><span class="mf">11.49006</span>        <span class="mf">2.74391</span>        <span class="mf">2.23387</span>
+<span class="n">C</span>        <span class="o">-</span><span class="mf">10.34144</span>        <span class="mf">2.11940</span>        <span class="mf">2.73616</span>
+<span class="n">C</span>         <span class="o">-</span><span class="mf">9.66274</span>        <span class="mf">1.17423</span>        <span class="mf">2.00184</span>
+<span class="n">Br</span>        <span class="o">-</span><span class="mf">1.22596</span>        <span class="mf">3.10477</span>        <span class="mf">0.37084</span>
+<span class="n">Br</span>         <span class="mf">1.18173</span>       <span class="o">-</span><span class="mf">2.96391</span>       <span class="o">-</span><span class="mf">0.20622</span>
+<span class="n">H</span>         <span class="o">-</span><span class="mf">1.46192</span>       <span class="o">-</span><span class="mf">1.90929</span>       <span class="o">-</span><span class="mf">0.04438</span>
+<span class="n">H</span>          <span class="mf">1.42157</span>        <span class="mf">2.04915</span>        <span class="mf">0.19107</span>
+<span class="n">H</span>          <span class="mf">3.15814</span>       <span class="o">-</span><span class="mf">1.24941</span>       <span class="o">-</span><span class="mf">0.33082</span>
+<span class="n">H</span>          <span class="mf">3.46472</span>        <span class="mf">1.66683</span>        <span class="mf">0.52108</span>
+<span class="n">H</span>          <span class="mf">5.16098</span>       <span class="o">-</span><span class="mf">1.45623</span>       <span class="o">-</span><span class="mf">0.82953</span>
+<span class="n">H</span>          <span class="mf">7.57560</span>       <span class="o">-</span><span class="mf">1.70447</span>       <span class="o">-</span><span class="mf">0.91774</span>
+<span class="n">H</span>          <span class="mf">8.05634</span>        <span class="mf">2.12895</span>        <span class="mf">0.91546</span>
+<span class="n">H</span>          <span class="mf">5.62653</span>        <span class="mf">2.38873</span>        <span class="mf">0.99739</span>
+<span class="n">H</span>         <span class="o">-</span><span class="mf">3.22302</span>        <span class="mf">1.41372</span>        <span class="mf">0.27662</span>
+<span class="n">H</span>         <span class="o">-</span><span class="mf">3.47028</span>       <span class="o">-</span><span class="mf">1.61398</span>       <span class="o">-</span><span class="mf">0.03752</span>
+<span class="n">H</span>         <span class="o">-</span><span class="mf">5.30134</span>        <span class="mf">1.71678</span>        <span class="mf">0.27090</span>
+<span class="n">H</span>         <span class="o">-</span><span class="mf">7.72831</span>        <span class="mf">1.86531</span>        <span class="mf">0.22466</span>
+<span class="n">H</span>         <span class="o">-</span><span class="mf">7.99890</span>       <span class="o">-</span><span class="mf">2.38608</span>       <span class="o">-</span><span class="mf">0.15037</span>
+<span class="n">H</span>         <span class="o">-</span><span class="mf">5.56074</span>       <span class="o">-</span><span class="mf">2.54083</span>       <span class="o">-</span><span class="mf">0.11172</span>
+<span class="n">H</span>         <span class="mf">11.74642</span>        <span class="mf">0.43909</span>        <span class="mf">1.06273</span>
+<span class="n">H</span>         <span class="mf">13.21515</span>        <span class="mf">2.35773</span>        <span class="mf">0.66757</span>
+<span class="n">H</span>         <span class="mf">10.33513</span>        <span class="mf">3.99768</span>       <span class="o">-</span><span class="mf">2.03977</span>
+<span class="n">H</span>          <span class="mf">8.88126</span>        <span class="mf">2.08182</span>       <span class="o">-</span><span class="mf">1.64989</span>
+<span class="n">H</span>         <span class="mf">11.47252</span>       <span class="o">-</span><span class="mf">0.94131</span>       <span class="o">-</span><span class="mf">1.34816</span>
+<span class="n">H</span>         <span class="mf">12.42439</span>       <span class="o">-</span><span class="mf">3.18240</span>       <span class="o">-</span><span class="mf">1.09107</span>
+<span class="n">H</span>          <span class="mf">9.48023</span>       <span class="o">-</span><span class="mf">4.08629</span>        <span class="mf">1.88056</span>
+<span class="n">H</span>          <span class="mf">8.54218</span>       <span class="o">-</span><span class="mf">1.85239</span>        <span class="mf">1.62644</span>
+<span class="n">H</span>        <span class="o">-</span><span class="mf">11.75585</span>       <span class="o">-</span><span class="mf">1.26098</span>        <span class="mf">0.61779</span>
+<span class="n">H</span>        <span class="o">-</span><span class="mf">13.02563</span>       <span class="o">-</span><span class="mf">2.84678</span>       <span class="o">-</span><span class="mf">0.74906</span>
+<span class="n">H</span>        <span class="o">-</span><span class="mf">10.00831</span>       <span class="o">-</span><span class="mf">2.64471</span>       <span class="o">-</span><span class="mf">3.77710</span>
+<span class="n">H</span>         <span class="o">-</span><span class="mf">8.75168</span>       <span class="o">-</span><span class="mf">1.06217</span>       <span class="o">-</span><span class="mf">2.41506</span>
+<span class="n">H</span>        <span class="o">-</span><span class="mf">11.58760</span>        <span class="mf">1.16845</span>       <span class="o">-</span><span class="mf">0.77908</span>
+<span class="n">H</span>        <span class="o">-</span><span class="mf">12.79529</span>        <span class="mf">2.84594</span>        <span class="mf">0.53326</span>
+<span class="n">H</span>         <span class="o">-</span><span class="mf">9.98123</span>        <span class="mf">2.36872</span>        <span class="mf">3.72191</span>
+<span class="n">H</span>         <span class="o">-</span><span class="mf">8.78721</span>        <span class="mf">0.69413</span>        <span class="mf">2.41458</span>
+<span class="n">C</span>         <span class="mf">12.79848</span>        <span class="mf">4.44330</span>       <span class="o">-</span><span class="mf">0.90794</span>
+<span class="n">C</span>         <span class="mf">11.60189</span>       <span class="o">-</span><span class="mf">5.14004</span>        <span class="mf">0.49225</span>
+<span class="n">C</span>        <span class="o">-</span><span class="mf">12.24825</span>        <span class="mf">3.72640</span>        <span class="mf">2.96718</span>
+<span class="n">C</span>        <span class="o">-</span><span class="mf">12.39522</span>       <span class="o">-</span><span class="mf">3.83630</span>       <span class="o">-</span><span class="mf">3.12216</span>
+<span class="n">H</span>        <span class="o">-</span><span class="mf">13.07666</span>        <span class="mf">4.05313</span>        <span class="mf">2.37398</span>
+<span class="n">H</span>        <span class="o">-</span><span class="mf">11.62135</span>        <span class="mf">4.56284</span>        <span class="mf">3.19578</span>
+<span class="n">H</span>        <span class="o">-</span><span class="mf">12.60953</span>        <span class="mf">3.29251</span>        <span class="mf">3.87608</span>
+<span class="n">H</span>        <span class="o">-</span><span class="mf">11.89722</span>       <span class="o">-</span><span class="mf">4.05312</span>       <span class="o">-</span><span class="mf">4.04405</span>
+<span class="n">H</span>        <span class="o">-</span><span class="mf">13.36173</span>       <span class="o">-</span><span class="mf">3.42540</span>       <span class="o">-</span><span class="mf">3.32692</span>
+<span class="n">H</span>        <span class="o">-</span><span class="mf">12.50350</span>       <span class="o">-</span><span class="mf">4.73704</span>       <span class="o">-</span><span class="mf">2.55484</span>
+<span class="n">H</span>         <span class="mf">12.42903</span>       <span class="o">-</span><span class="mf">5.21273</span>       <span class="o">-</span><span class="mf">0.18262</span>
+<span class="n">H</span>         <span class="mf">10.86525</span>       <span class="o">-</span><span class="mf">5.87176</span>        <span class="mf">0.23370</span>
+<span class="n">H</span>         <span class="mf">11.94111</span>       <span class="o">-</span><span class="mf">5.31331</span>        <span class="mf">1.49216</span>
+<span class="n">H</span>         <span class="mf">12.36632</span>        <span class="mf">5.13927</span>       <span class="o">-</span><span class="mf">1.59623</span>
+<span class="n">H</span>         <span class="mf">13.72598</span>        <span class="mf">4.08233</span>       <span class="o">-</span><span class="mf">1.30082</span>
+<span class="n">H</span>         <span class="mf">12.97323</span>        <span class="mf">4.92991</span>        <span class="mf">0.02885</span>
+<span class="nd">@end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Submit a job</p>
+<blockquote>
+<div><p>Runs the above example. On Dardel this calculation takes several minutes
+on 4 nodes.</p>
+</div></blockquote>
+</li>
+<li><p>Compare number of NTOs with number of important excitations</p>
+<blockquote>
+<div><p>Use the python script in <a class="reference internal" href="hpc-setup.html#linrsp-analysis"><span class="std std-ref">this page</span></a>
+to extract important excitations from output files.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ml PDC/21.11 Anaconda3/2021.05 vim/8.2
+python3 analyze_response_output.py bpvb.out
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Visualize the cube files. You can launch a <a class="reference external" href="https://mybinder.org/v2/gh/ENCCS/veloxchem-hpc/main?urlpath=lab%2Ftree%2Fcontent%2Fnotebooks">MyBinder instance</a>
+to look at your NTOs in a Jupyter notebook. Once instance has started up, you
+can upload your cube files to it and use py3Dmol (already installed) as
+follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">py3Dmol</span> <span class="k">as</span> <span class="nn">p3d</span>
+
+<span class="n">h2o_xyz</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;3</span>
+<span class="s2">water</span>
+<span class="s2">O    0.000000000000        0.000000000000        0.000000000000</span>
+<span class="s2">H    0.000000000000        0.740848095288        0.582094932012</span>
+<span class="s2">H    0.000000000000       -0.740848095288        0.582094932012</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="c1"># generate view</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">p3d</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+
+<span class="c1"># to show the molecular geometry, we read it from a XYZ file</span>
+<span class="n">v</span><span class="o">.</span><span class="n">addModel</span><span class="p">(</span><span class="n">h2o_xyz</span><span class="p">,</span> <span class="s2">&quot;xyz&quot;</span><span class="p">)</span>
+<span class="n">v</span><span class="o">.</span><span class="n">setStyle</span><span class="p">({</span><span class="s1">&#39;stick&#39;</span><span class="p">:{}})</span>
+
+<span class="c1"># we read in the cube file we uploaded (might take a bit of time, depending on the filesize)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;HOMO.cube&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">cube</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># negative lobe</span>
+<span class="n">v</span><span class="o">.</span><span class="n">addVolumetricData</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="s2">&quot;cube&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;isoval&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;opacity&quot;</span><span class="p">:</span> <span class="mf">0.75</span><span class="p">})</span>
+<span class="c1"># positive lobe</span>
+<span class="n">v</span><span class="o">.</span><span class="n">addVolumetricData</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="s2">&quot;cube&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;isoval&quot;</span><span class="p">:</span> <span class="mf">0.02</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;opacity&quot;</span><span class="p">:</span> <span class="mf">0.75</span><span class="p">})</span>
+
+<span class="n">v</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="exciton.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Exciton calculation</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="quick-reference.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Quick Reference</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By The contributors<br/>
+    
+        &copy; Copyright 2022, The contributors.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

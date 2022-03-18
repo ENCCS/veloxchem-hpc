@@ -1,0 +1,540 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Setting up VeloxChem on a HPC cluster</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx_lesson.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/overrides.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/minipres.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://3Dmol.org/build/3Dmol-min.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="First steps with VeloxChem" href="notebooks/first-steps.html" />
+    <link rel="prev" title="Setting up your system" href="setup.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/ENCCS-PDC-logos.jpg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   VeloxChem: quantum chemistry towards pre-exascale and beyond
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="setup.html">
+   Setting up your system
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Setting up VeloxChem on a HPC cluster
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  The lesson
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks/first-steps.html">
+   First steps with VeloxChem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="modern-hpc-architectures.html">
+   Modern HPC architectures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="performance-theory.html">
+   Performance theory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scf-scaling-study.html">
+   Scaling study: self-consistent field calculations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="eri-overview.html">
+   An overview of electron-repulsion integral evaluation algorithms
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="linrsp-scaling-study.html">
+   Scaling study: excitation energies with linear response
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="x-ray-cpp.html">
+   Complex polarization propagator in the X-ray region
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exciton.html">
+   Exciton calculation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ntos.html">
+   Natural transition orbitals
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="quick-reference.html">
+   Quick Reference
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="zbibliography.html">
+   Bibliography
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="guide.html">
+   Instructor’s guide
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
+<div class="sbt-scroll-pixel-helper"></div>
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            <div class="topbar-left">
+                
+                <label class="nav-toggle-button" for="__navigation">
+                    <div class="visually-hidden">Toggle navigation</div>
+                    <i class="fas fa-bars"></i>
+                </label>
+                
+            </div>
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/hpc-setup.rst.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ENCCS/veloxchem-hpc"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/ENCCS/veloxchem-hpc/issues/new?title=Issue%20on%20page%20%2Fhpc-setup.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/ENCCS/veloxchem-hpc/edit/main/content/hpc-setup.rst"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dardel-pdc">
+   Dardel (PDC)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#script-for-analyzing-singlet-excitations-from-linear-response-output">
+   Script for analyzing singlet excitations from linear response output
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Setting up VeloxChem on a HPC cluster</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dardel-pdc">
+   Dardel (PDC)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#script-for-analyzing-singlet-excitations-from-linear-response-output">
+   Script for analyzing singlet excitations from linear response output
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="section" id="setting-up-veloxchem-on-a-hpc-cluster">
+<span id="hpc-setup"></span><h1>Setting up VeloxChem on a HPC cluster<a class="headerlink" href="#setting-up-veloxchem-on-a-hpc-cluster" title="Permalink to this headline">¶</a></h1>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Learn how to use the VeloxChem module on Dardel.</p></li>
+</ul>
+</div>
+<div class="admonition-keypoints keypoints admonition" id="keypoints-0">
+<p class="admonition-title">Keypoints</p>
+<ul class="simple">
+<li><p>VeloxChem and its Python dependencies are installed in a virtual environment.</p></li>
+</ul>
+</div>
+<div class="section" id="dardel-pdc">
+<h2>Dardel (PDC)<a class="headerlink" href="#dardel-pdc" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.pdc.kth.se/hpc-services/computing-systems/about-dardel-1.1053338">Dardel</a>
+is a Cray XE system at <a class="reference external" href="https://www.pdc.kth.se/">PDC</a>.</p>
+<p>VeloxChem is available as a module on Dardel:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ module load PDC/21.11
+$ module load veloxchem/1.0dev
+</pre></div>
+</div>
+<p>Example submission script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
+
+#SBATCH -J myjob
+#SBATCH -t 01:00:00
+#SBATCH -p main
+#SBATCH -A edu22.veloxchem
+#SBATCH --reservation velox-lab1
+
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=8
+
+module load PDC/21.11
+module load veloxchem/1.0dev
+
+export OMP_NUM_THREADS=16
+export OMP_PLACES=cores
+
+job=porphyrin
+srun vlx ${job}.inp ${job}.out
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>There are two ways to log in to Dardel.</p>
+<ul>
+<li><p>If you have a SUPR account, you can choose to log in using SSH key pairs.
+See <a class="reference external" href="https://www.pdc.kth.se/support/documents/login/ssh_login.html">How to login in with SSH keys</a></p></li>
+<li><p>If you don’t have a SUPR account, or do not know what SUPR is, you can
+log in using a Kerberos ticket. See <a class="reference external" href="https://www.pdc.kth.se/support/documents/login/login.html">How to Login with kerberos</a></p></li>
+</ul>
+</li>
+<li><p>The time allocation for the workshop is <code class="docutils literal notranslate"><span class="pre">edu22.veloxchem</span></code></p>
+<ul>
+<li><p>For the first day we can use the reservation <code class="docutils literal notranslate"><span class="pre">velox-lab1</span></code></p></li>
+<li><p>For the second day we can use the reservation <code class="docutils literal notranslate"><span class="pre">velox-lab2</span></code></p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
+<p>The purpose of the exercise is to check that your VeloxChem can run a simple
+calculation.  You can test with the <a class="reference external" href="https://gitlab.com/veloxchem/veloxchem/-/raw/master/docs/inputs/cpp.inp">cpp.inp</a>
+file.</p>
+<ul>
+<li><p>On Dardel:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">salloc</span> <span class="o">-</span><span class="n">N</span> <span class="mi">1</span> <span class="o">--</span><span class="n">ntasks</span><span class="o">-</span><span class="n">per</span><span class="o">-</span><span class="n">node</span> <span class="mi">8</span> <span class="o">-</span><span class="n">t</span> <span class="mi">00</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">00</span> <span class="o">-</span><span class="n">p</span> <span class="n">main</span> <span class="o">-</span><span class="n">A</span> <span class="n">edu22</span><span class="o">.</span><span class="n">veloxchem</span> <span class="o">--</span><span class="n">reservation</span> <span class="n">velox</span><span class="o">-</span><span class="n">lab1</span>
+<span class="n">module</span> <span class="n">load</span> <span class="n">PDC</span><span class="o">/</span><span class="mf">21.11</span> <span class="n">veloxchem</span><span class="o">/</span><span class="mf">1.0</span><span class="n">dev</span>
+<span class="n">export</span> <span class="n">OMP_NUM_THREADS</span><span class="o">=</span><span class="mi">16</span>
+<span class="n">export</span> <span class="n">OMP_PLACES</span><span class="o">=</span><span class="n">cores</span>
+<span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">gitlab</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">veloxchem</span><span class="o">/</span><span class="n">veloxchem</span><span class="o">/-/</span><span class="n">raw</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">inputs</span><span class="o">/</span><span class="n">cpp</span><span class="o">.</span><span class="n">inp</span>
+<span class="n">srun</span> <span class="n">vlx</span> <span class="n">cpp</span><span class="o">.</span><span class="n">inp</span>
+<span class="n">exit</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="script-for-analyzing-singlet-excitations-from-linear-response-output">
+<span id="linrsp-analysis"></span><h2>Script for analyzing singlet excitations from linear response output<a class="headerlink" href="#script-for-analyzing-singlet-excitations-from-linear-response-output" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">h5py</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">out_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">rsp_file</span> <span class="o">=</span> <span class="n">out_file</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s1">&#39;.rsp.solutions.h5&#39;</span><span class="p">)</span>
+
+<span class="c1"># threshold for priting excitations</span>
+
+<span class="n">coef_thresh</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="c1"># read output file for number of occupied and virtual orbitals</span>
+
+<span class="n">nocc</span><span class="p">,</span> <span class="n">n_ao</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+<span class="n">n_lindep</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">with</span> <span class="n">out_file</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_out</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f_out</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s1">&#39;Number of alpha electrons   :&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+            <span class="n">nocc</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">if</span> <span class="s1">&#39;Contracted Basis Functions :&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+            <span class="n">n_ao</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">if</span> <span class="s1">&#39;Removed&#39;</span> <span class="ow">in</span> <span class="n">line</span> <span class="ow">and</span> <span class="s1">&#39;linearly dependent vectors&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+            <span class="n">n_lindep</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;Removed&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">n_mo</span> <span class="o">=</span> <span class="n">n_ao</span> <span class="o">-</span> <span class="n">n_lindep</span>
+<span class="n">nvir</span> <span class="o">=</span> <span class="n">n_mo</span> <span class="o">-</span> <span class="n">nocc</span>
+<span class="n">n_ov</span> <span class="o">=</span> <span class="n">nocc</span> <span class="o">*</span> <span class="n">nvir</span>
+
+<span class="c1"># read hdf5 file for excitations</span>
+
+<span class="n">hf</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">rsp_file</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">hf</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="n">state</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">state</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;S</span><span class="si">{</span><span class="n">state</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">hf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">array</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="n">n_ov</span> <span class="o">*</span> <span class="mi">2</span>
+
+    <span class="n">excitations</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">de_excitations</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nocc</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nvir</span><span class="p">):</span>
+            <span class="n">ia</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">nvir</span> <span class="o">+</span> <span class="n">a</span>
+            <span class="n">exc_coef</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">ia</span><span class="p">]</span>
+            <span class="n">de_exc_coef</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">n_ov</span> <span class="o">+</span> <span class="n">ia</span><span class="p">]</span>
+
+            <span class="n">homo</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;HOMO-</span><span class="si">{</span><span class="n">nocc</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">nocc</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">else</span> <span class="s1">&#39;HOMO&#39;</span>
+            <span class="n">lumo</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;LUMO+</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">if</span> <span class="n">a</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">&#39;LUMO&#39;</span>
+
+            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">exc_coef</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">coef_thresh</span><span class="p">:</span>
+                <span class="n">excitations</span><span class="o">.</span><span class="n">append</span><span class="p">((</span>
+                    <span class="nb">abs</span><span class="p">(</span><span class="n">exc_coef</span><span class="p">),</span>
+                    <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">homo</span><span class="si">:</span><span class="s1">&lt;8s</span><span class="si">}</span><span class="s1"> -&gt; </span><span class="si">{</span><span class="n">lumo</span><span class="si">:</span><span class="s1">&lt;8s</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">exc_coef</span><span class="si">:</span><span class="s1">10.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="p">))</span>
+
+            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">de_exc_coef</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">coef_thresh</span><span class="p">:</span>
+                <span class="n">de_excitations</span><span class="o">.</span><span class="n">append</span><span class="p">((</span>
+                    <span class="nb">abs</span><span class="p">(</span><span class="n">de_exc_coef</span><span class="p">),</span>
+                    <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">homo</span><span class="si">:</span><span class="s1">&lt;8s</span><span class="si">}</span><span class="s1"> &lt;- </span><span class="si">{</span><span class="n">lumo</span><span class="si">:</span><span class="s1">&lt;8s</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">de_exc_coef</span><span class="si">:</span><span class="s1">10.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="p">))</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;S</span><span class="si">{</span><span class="n">state</span><span class="si">}</span><span class="s1">:&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">exc</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">excitations</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  &#39;</span><span class="p">,</span> <span class="n">exc</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">de_exc</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">de_excitations</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  &#39;</span><span class="p">,</span> <span class="n">de_exc</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">hf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="setup.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Setting up your system</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="notebooks/first-steps.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">First steps with VeloxChem</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By The contributors<br/>
+    
+        &copy; Copyright 2022, The contributors.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
